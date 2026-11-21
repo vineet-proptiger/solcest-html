@@ -12,7 +12,7 @@ window.THEME_COLORS = {
   primary: "#b95734",    // 🟠 Primary / Brand Color (Orange - Main Headings, Buttons, Badges, Borders)
   hover: "#152a42",      // 🔵 Button Hover Color (Navy Blue / Custom Blue on hover)
   btnText: "#ffffff",    // ⚪ Button & Badge Text Color (White text inside all buttons/badges)
-  heading: "#0b2d52",    // 🔷 Subheadings, Card Titles & Form Labels Color
+  heading: "#524f0b",    // 🔷 Subheadings, Card Titles & Form Labels Color
   text: "#444444"        // 📝 Body Content & Paragraph Text Color
 };
 
@@ -174,8 +174,6 @@ window.applyThemeColors = function () {
     .footer-rera,
     .footer-rera p,
     .footer-disclaimer,
-    .footer-bottom,
-    .footer-bottom p,
     .highlight-ribbon-text,
     .circuit-title,
     .circuit-btn h4 {
@@ -231,6 +229,10 @@ window.applyThemeColors = function () {
     .hero-badge-pill,
     .hero-badge-pill *,
     .hero-status-badge .badge-value,
+    .footer-bottom,
+    .footer-bottom *,
+    .footer-bottom p,
+    .footer-bottom a,
     .rs-lead-form .btn-primary,
     .rs-lead-form .btn-primary *,
     .rs-lead-form .btn-primary i,
