@@ -1,0 +1,12 @@
+# ═══════════════════════════════════════════════════
+# CLOUDFLARE PAGES CLEAN URLS & SLUG REWRITES
+# ═══════════════════════════════════════════════════
+
+
+# Clean Slugs for subpages (without .html)
+/privacy-policy       /privacy-policy.html      200
+/privacy-policy/      /privacy-policy.html      200
+
+
+/sitemap              /sitemap.html             200
+/sitemap/             /sitemap.html             200

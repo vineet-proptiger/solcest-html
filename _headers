@@ -1,0 +1,16 @@
+# ═══════════════════════════════════════════════════
+# CLOUDFLARE PAGES HTTP CACHE-CONTROL HEADERS
+# ═══════════════════════════════════════════════════
+
+# Default for all pages, HTML, CSS, JS: NO CACHE
+/*
+  Cache-Control: no-cache, no-store, must-revalidate, max-age=0, s-maxage=0
+  Pragma: no-cache
+  Expires: 0
+
+# Only Images Cached (7 Days Browser Cache + Stale-While-Revalidate)
+/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/favicon/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
