@@ -10,7 +10,7 @@
 // ===============================================================
 window.THEME_COLORS = {
   primary: "#b95734",    // 🟠 Primary / Brand Color (Orange - Main Headings, Buttons, Badges, Borders)
-  hover: "#1363be",      // 🔵 Button Hover Color (Navy Blue / Custom Blue on hover)
+  hover: "#152a42",      // 🔵 Button Hover Color (Navy Blue / Custom Blue on hover)
   btnText: "#ffffff",    // ⚪ Button & Badge Text Color (White text inside all buttons/badges)
   heading: "#0b2d52",    // 🔷 Subheadings, Card Titles & Form Labels Color
   text: "#444444"        // 📝 Body Content & Paragraph Text Color
@@ -150,8 +150,7 @@ window.applyThemeColors = function () {
 
     /* Subheadings, Card Titles & Form Labels */
     .rs-lead-form .form-label,
-    .circuit-title,
-    .highlight-ribbon-text {
+    .overview-stats-strip h3 {
       color: ${heading} !important;
     }
 
@@ -176,7 +175,10 @@ window.applyThemeColors = function () {
     .footer-rera p,
     .footer-disclaimer,
     .footer-bottom,
-    .footer-bottom p {
+    .footer-bottom p,
+    .highlight-ribbon-text,
+    .circuit-title,
+    .circuit-btn h4 {
       color: ${text} !important;
     }
 
