@@ -392,7 +392,7 @@ function RSLeadSubmit(form, event) {
     }
 
     const ptQueryParams = new URLSearchParams({
-      utm_source: payloadData.utm_source || 'Microsite',
+      utm_source: payloadData.utm_source || 'google',
       utm_medium: payloadData.utm_medium || 'organic',
       utm_campaign: payloadData.utm_campaign || '',
       utm_term: payloadData.utm_term || '',

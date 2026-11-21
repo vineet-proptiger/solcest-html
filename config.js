@@ -1,9 +1,3 @@
-/* ===============================================================
-   PROJECT & MASTER CONFIGURATION (config.js)
-   ---------------------------------------------------------------
-   Sabhi User Settings ek sath upar (Top) me rakhi gayi hain.
-   Aapko jo bhi badalna ho, bas is Block (1 to 7) me badlein!
-=============================================================== */
 
 // ===============================================================
 // 1. MASTER THEME COLORS (1 place se poore project ke colors change karein)
