@@ -75,7 +75,7 @@
     <meta http-equiv="Expires" content="0" />
 
     <!-- Project Config & Attribution Tracking -->
-    <script src="config.js?v=4.8"></script>
+    <script src="config.js?v=5.0"></script>
     <script src="formMeta.js?v=2.0"></script>
 
     <title>by Bricks & Milestone | Premium Residences</title>
@@ -266,16 +266,19 @@
           list-style: none;
         }
       }
-      nav a {
+      nav a,
+      .menu-wrapper a {
         text-decoration: none;
         color: #333;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 500;
         white-space: nowrap;
         transition: color 0.2s ease;
       }
       nav a:hover,
-      nav a.fw-bold {
+      nav a.fw-bold,
+      .menu-wrapper a:hover,
+      .menu-wrapper a.fw-bold {
         color: var(--primary, #b95734);
       }
       .menu-wrapper a i,
@@ -1011,7 +1014,7 @@
 
       .hero-badge-pill .blinking-price {
         font-weight: 700;
-        font-size: 16px;
+        font-size: 18px;
         color: #ffffff;
       }
 
@@ -1030,7 +1033,7 @@
       .blinking-price,
       .price-bling-anim {
         display: inline-block;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 800;
         letter-spacing: 0.5px;
         animation: priceBlinkOnOff 1s infinite;

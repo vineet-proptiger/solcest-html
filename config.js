@@ -355,7 +355,13 @@ window.applyThemeColors = function () {
     .hero-badge-pill .price-bling-anim {
       color: #ffffff !important;
       font-weight: 700 !important;
-      font-size: 16px !important;
+      font-size: 18px !important;
+    }
+
+    /* Header Navigation Links 15px */
+    header nav a,
+    .menu-wrapper a {
+      font-size: 15px !important;
     }
 
     /* Accent Borders, Dots & Lines */
