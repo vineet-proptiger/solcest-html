@@ -463,7 +463,7 @@ function RSLeadSubmit(form, event) {
       SourceURL: cleanLandingPage,
       sourceurl: cleanLandingPage,
       referrer: cleanReferrer,
-      utm_source: payloadData.utm_source || 'Microsite',
+      utm_source: payloadData.utm_source || 'google',
       utm_medium: payloadData.utm_medium || 'organic',
       utm_campaign: payloadData.utm_campaign || '',
       sendOtp: false,
@@ -496,7 +496,7 @@ function RSLeadSubmit(form, event) {
         sheetData.append('email', payloadData.email || '');
         sheetData.append('mobile', (payloadData.phone || '').replace(/\D/g, '').slice(-10));
         sheetData.append('comments', payloadData.comments || '');
-        sheetData.append('utm_source', payloadData.utm_source || 'Microsite');
+        sheetData.append('utm_source', payloadData.utm_source || 'google');
         sheetData.append('utm_medium', payloadData.utm_medium || 'organic');
         sheetData.append('utm_campaign', payloadData.utm_campaign || '');
         sheetData.append('utm_term', payloadData.utm_term || '');

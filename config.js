@@ -31,6 +31,39 @@ window.DOMAIN_NAME = "https://prestigesector92.co.in/";
 window.SITE_URL = window.DOMAIN_NAME;
 window.BASE_URL = window.DOMAIN_NAME.replace(/\/+$/, "");
 
+// Dynamic Brand Name Extractor (e.g. "https://prestigesector92.co.in/" -> "prestigesector92")
+window.getDomainBrand = function (domainInput) {
+  var raw = domainInput ? domainInput : (window.DOMAIN_NAME ? window.DOMAIN_NAME : (typeof window !== "undefined" && window.location ? window.location.hostname : ""));
+  if (!raw) {
+    return "prestigesector92";
+  }
+  var str = raw.replace(/^(?:https?:)?\/\//i, "");
+  str = str.split("/")[0].split("?")[0].split("#")[0].split(":")[0].trim();
+  str = str.replace(/^(?:www|m|lp)\./i, "");
+  if (str === "localhost") {
+    if (window.DOMAIN_NAME) {
+      if (window.DOMAIN_NAME.indexOf("localhost") === -1) {
+        return window.getDomainBrand(window.DOMAIN_NAME);
+      }
+    }
+    return "prestigesector92";
+  }
+  if (/^[0-9.]+$/.test(str)) {
+    if (window.DOMAIN_NAME) {
+      if (window.DOMAIN_NAME.indexOf("localhost") === -1) {
+        return window.getDomainBrand(window.DOMAIN_NAME);
+      }
+    }
+    return "prestigesector92";
+  }
+  var parts = str.split(".");
+  if (parts.length >= 2) {
+    return parts[0];
+  }
+  return str ? str : "prestigesector92";
+};
+window.DOMAIN_BRAND = window.getDomainBrand();
+
 // ===============================================================
 // 4. Logo Image
 // ===============================================================
@@ -484,6 +517,19 @@ window.applyProjectConfig = function () {
       if (document.head) document.head.appendChild(twUrl);
     }
     twUrl.content = fullPageUrl;
+  }
+
+  // Update Dynamic Domain Brand across site & Privacy Policy
+  const domainBrand = typeof window.getDomainBrand === "function" ? window.getDomainBrand() : "prestigesector92";
+  const domainBrandEls = document.querySelectorAll(".dynamic-domain-brand");
+  domainBrandEls.forEach((el) => {
+    el.textContent = domainBrand;
+  });
+
+  if (window.location.pathname.indexOf("privacy") !== -1) {
+    if (window.PROJECT_NAME) {
+      document.title = "Privacy Policy | " + window.PROJECT_NAME;
+    }
   }
 
   // Update Global Buttons

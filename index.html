@@ -75,7 +75,7 @@
     <meta http-equiv="Expires" content="0" />
 
     <!-- Project Config & Attribution Tracking -->
-    <script src="config.js?v=4.6"></script>
+    <script src="config.js?v=4.8"></script>
     <script src="formMeta.js?v=2.0"></script>
 
     <title>by Bricks & Milestone | Premium Residences</title>
@@ -243,19 +243,44 @@
         color: var(--gold);
       }
 
-      nav ul {
-        display: flex;
-        gap: 22px;
-        list-style: none;
+      @media (min-width: 992px) {
+        .header-wrap {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 6px 24px;
+        }
+        header nav {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        nav ul.menu-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: clamp(14px, 1.8vw, 26px);
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
       }
       nav a {
         text-decoration: none;
         color: #333;
         font-size: 14px;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: color 0.2s ease;
       }
+      nav a:hover,
+      nav a.fw-bold {
+        color: var(--primary, #b95734);
+      }
+      .menu-wrapper a i,
       nav a i {
-        margin-right: 6px;
-        color: var(--blue);
+        display: none !important;
       }
 
       .brochure-btn a {
@@ -1325,39 +1350,25 @@
               <ul id="menu" class="menu-wrapper py-3 m-0">
                 <!--<li><a href="#overview"><i class="fa-solid fa-circle-info"></i> Overview</a></li>-->
                 <li>
-                  <a href="#overview" class="fw-bold"
-                    ><i class="fa-solid fa-circle-info"></i> Overview</a
-                  >
+                  <a href="#overview" class="fw-bold">Overview</a>
                 </li>
                 <li>
-                  <a href="#highlights"
-                    ><i class="fa-solid fa-star"></i> Highlights</a
-                  >
+                  <a href="#highlights">Highlights</a>
                 </li>
                 <li>
-                  <a href="#gallery"
-                    ><i class="fa-solid fa-images"></i> Gallery</a
-                  >
+                  <a href="#gallery">Gallery</a>
                 </li>
                 <li>
-                  <a href="#pricing"
-                    ><i class="fa-solid fa-indian-rupee-sign"></i> Pricing</a
-                  >
+                  <a href="#pricing">Pricing</a>
                 </li>
                 <li>
-                  <a href="#amenities"
-                    ><i class="fa-solid fa-swimming-pool"></i> Amenities</a
-                  >
+                  <a href="#amenities">Amenities</a>
                 </li>
                 <li>
-                  <a href="#floor-plan"
-                    ><i class="fa-solid fa-building"></i> Floor Plan</a
-                  >
+                  <a href="#floor-plan">Floor Plan</a>
                 </li>
                 <li>
-                  <a href="#location"
-                    ><i class="fa-solid fa-location-dot"></i> Location</a
-                  >
+                  <a href="#location">Location</a>
                 </li>
                 <!--<li><a href="#About"><i class="fa-solid fa-location-dot"></i> About</a></li>-->
                 <!--<li class="brochure-btn mb-3 mb-lg-0" data-bs-toggle="modal" data-bs-target="#leadModal">-->
