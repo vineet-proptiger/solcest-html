@@ -47,10 +47,15 @@ window.renderDeveloperSection = function () {
     cardBtn.textContent = data.buttonText;
   }
 
-  // 6. Card Background Image
+  // 6. Card Background (Clean gradient, image removed)
   const touchCard = document.querySelector("#about-us .get-in-touch-card");
-  if (touchCard && data.cardBgImage) {
-    touchCard.style.backgroundImage = `linear-gradient(135deg, rgba(32, 22, 18, 0.84) 0%, rgba(48, 26, 18, 0.88) 100%), url("${data.cardBgImage}")`;
+  if (touchCard) {
+    if (data.cardBgImage) {
+      touchCard.style.backgroundImage = `linear-gradient(135deg, rgba(32, 22, 18, 0.84) 0%, rgba(48, 26, 18, 0.88) 100%), url("${data.cardBgImage}")`;
+    } else {
+      touchCard.style.backgroundImage = "none";
+      touchCard.style.background = "linear-gradient(135deg, #201612 0%, #301a12 100%)";
+    }
   }
 };
 

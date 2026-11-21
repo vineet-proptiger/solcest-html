@@ -37,8 +37,8 @@ window.GTM_ID = "GTM-575H8R87";
 
 // 6. Global Buttons (Mobile Sticky Bar)
 window.GLOBAL_BUTTONS = {
-  mobileCall: "Call Now",
-  mobileEnquire: "Enquire Now",
+  mobileCall: "Call Us",
+  mobileEnquire: "ENQUIRE",
   mobileWhatsApp: "WhatsApp"
 };
 

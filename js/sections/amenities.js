@@ -62,7 +62,7 @@ window.renderAmenitiesSection = function () {
           ${
             item1
               ? `
-            <div class="amenity-card" data-bs-toggle="modal" data-bs-target="#leadModal">
+            <div class="amenity-card" data-index="${i}">
               <img src="${item1.image}" alt="${item1.title}" loading="lazy" />
               <span>${item1.title}</span>
             </div>
@@ -72,7 +72,7 @@ window.renderAmenitiesSection = function () {
           ${
             item2
               ? `
-            <div class="amenity-card" data-bs-toggle="modal" data-bs-target="#leadModal">
+            <div class="amenity-card" data-index="${i + 1}">
               <img src="${item2.image}" alt="${item2.title}" loading="lazy" />
               <span>${item2.title}</span>
             </div>
@@ -83,6 +83,21 @@ window.renderAmenitiesSection = function () {
       `;
     }
     scrollBox.innerHTML = colsHtml;
+  }
+
+  // 2b. Mobile Track Items
+  const mobileTrack = document.getElementById("amenitiesMobileTrack");
+  if (mobileTrack) {
+    let mobHtml = "";
+    data.items.forEach((item, idx) => {
+      mobHtml += `
+        <div class="amenity-card" data-index="${idx}">
+          <img src="${item.image}" alt="${item.title}" loading="lazy" />
+          <span>${item.title}</span>
+        </div>
+      `;
+    });
+    mobileTrack.innerHTML = mobHtml;
   }
 
   // 3. Button Text

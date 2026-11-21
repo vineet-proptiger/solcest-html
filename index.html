@@ -2303,8 +2303,7 @@
                 <div class="amenity-col">
                   <div
                     class="amenity-card"
-                    data-bs-toggle="modal"
-                    data-bs-target="#leadModal"
+                    data-index="0"
                   >
                     <img
                       src="images/amenities/a1.webp"
@@ -2315,8 +2314,7 @@
                   </div>
                   <div
                     class="amenity-card"
-                    data-bs-toggle="modal"
-                    data-bs-target="#leadModal"
+                    data-index="1"
                   >
                     <img
                       src="images/amenities/a2.webp"
@@ -2331,8 +2329,7 @@
                 <div class="amenity-col">
                   <div
                     class="amenity-card"
-                    data-bs-toggle="modal"
-                    data-bs-target="#leadModal"
+                    data-index="2"
                   >
                     <img
                       src="images/amenities/a3.webp"
@@ -2343,8 +2340,7 @@
                   </div>
                   <div
                     class="amenity-card"
-                    data-bs-toggle="modal"
-                    data-bs-target="#leadModal"
+                    data-index="3"
                   >
                     <img
                       src="images/amenities/a4.webp"
@@ -2359,8 +2355,7 @@
                 <div class="amenity-col">
                   <div
                     class="amenity-card"
-                    data-bs-toggle="modal"
-                    data-bs-target="#leadModal"
+                    data-index="4"
                   >
                     <img
                       src="images/amenities/a5.webp"
@@ -2371,8 +2366,7 @@
                   </div>
                   <div
                     class="amenity-card"
-                    data-bs-toggle="modal"
-                    data-bs-target="#leadModal"
+                    data-index="5"
                   >
                     <img
                       src="images/amenities/a6.webp"
@@ -2382,6 +2376,86 @@
                     <span>Yoga &amp; Aerobics Studio</span>
                   </div>
                 </div>
+              </div>
+
+              <!-- Small Devices (Mobile <= 768px): 1 Card At A Time -->
+              <div class="amenities-mobile-track" id="amenitiesMobileTrack">
+                <div
+                  class="amenity-card"
+                  data-index="0"
+                >
+                  <img
+                    src="images/amenities/a1.webp"
+                    alt="Gymnasium"
+                    loading="lazy"
+                  />
+                  <span>Gymnasium</span>
+                </div>
+                <div
+                  class="amenity-card"
+                  data-index="1"
+                >
+                  <img
+                    src="images/amenities/a2.webp"
+                    alt="Jacuzzi &amp; Wellness Spa"
+                    loading="lazy"
+                  />
+                  <span>Jacuzzi &amp; Wellness Spa</span>
+                </div>
+                <div
+                  class="amenity-card"
+                  data-index="2"
+                >
+                  <img
+                    src="images/amenities/a3.webp"
+                    alt="Swimming Pool &amp; Kids' Pool"
+                    loading="lazy"
+                  />
+                  <span>Swimming Pool &amp; Kids' Pool</span>
+                </div>
+                <div
+                  class="amenity-card"
+                  data-index="3"
+                >
+                  <img
+                    src="images/amenities/a4.webp"
+                    alt="Mini Theatre &amp; Lounge"
+                    loading="lazy"
+                  />
+                  <span>Mini Theatre &amp; Lounge</span>
+                </div>
+                <div
+                  class="amenity-card"
+                  data-index="4"
+                >
+                  <img
+                    src="images/amenities/a5.webp"
+                    alt="Virtual Golf Simulator"
+                    loading="lazy"
+                  />
+                  <span>Virtual Golf Simulator</span>
+                </div>
+                <div
+                  class="amenity-card"
+                  data-index="5"
+                >
+                  <img
+                    src="images/amenities/a6.webp"
+                    alt="Yoga &amp; Aerobics Studio"
+                    loading="lazy"
+                  />
+                  <span>Yoga &amp; Aerobics Studio</span>
+                </div>
+              </div>
+
+              <!-- Mobile Dots Pagination -->
+              <div class="amenity-dots" id="amenityDots">
+                <span class="amenity-dot active" onclick="goToAmenity(0)"></span>
+                <span class="amenity-dot" onclick="goToAmenity(1)"></span>
+                <span class="amenity-dot" onclick="goToAmenity(2)"></span>
+                <span class="amenity-dot" onclick="goToAmenity(3)"></span>
+                <span class="amenity-dot" onclick="goToAmenity(4)"></span>
+                <span class="amenity-dot" onclick="goToAmenity(5)"></span>
               </div>
             </div>
 
@@ -2522,23 +2596,125 @@
             .amenity-arrow.right {
               right: -20px;
             }
+
+            /* Desktop / Tablet (> 768px): Hide mobile track & dots */
+            @media (min-width: 769px) {
+              .amenities-mobile-track,
+              .amenity-dots {
+                display: none !important;
+              }
+            }
+
+            /* Small Devices (Mobile <= 768px): 1 Card At A Time */
             @media (max-width: 768px) {
+              #amenitiesScroll {
+                display: none !important;
+              }
+              .amenities-mobile-track {
+                display: flex !important;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                gap: 0;
+                width: 100%;
+                padding: 6px 0;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+              }
+              .amenities-mobile-track::-webkit-scrollbar {
+                display: none;
+              }
+              .amenities-mobile-track .amenity-card {
+                flex: 0 0 100% !important;
+                min-width: 100% !important;
+                width: 100% !important;
+                scroll-snap-align: start;
+                height: 240px;
+                border-radius: 14px;
+                margin: 0;
+              }
+              .amenity-arrow {
+                width: 38px;
+                height: 38px;
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                z-index: 10;
+              }
               .amenity-arrow.left {
-                left: 2px;
+                left: 6px;
               }
               .amenity-arrow.right {
-                right: 2px;
+                right: 6px;
+              }
+              .amenity-dots {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 7px;
+                margin-top: 14px;
+              }
+              .amenity-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: #d5cec5;
+                transition: all 0.3s ease;
+                cursor: pointer;
+              }
+              .amenity-dot.active {
+                width: 22px;
+                border-radius: 10px;
+                background: #B95734;
               }
             }
           </style>
           <script>
             function scrollAmenities(dir) {
-              const scrollBox = document.getElementById("amenitiesScroll");
-              if (scrollBox) {
-                const scrollAmount = 300;
-                scrollBox.scrollBy({ left: dir * scrollAmount, behavior: "smooth" });
+              const isMobile = window.innerWidth <= 768;
+              const mobileTrack = document.getElementById("amenitiesMobileTrack");
+              const desktopScroll = document.getElementById("amenitiesScroll");
+
+              if (isMobile && mobileTrack) {
+                mobileTrack.scrollBy({
+                  left: dir * mobileTrack.clientWidth,
+                  behavior: "smooth",
+                });
+              } else if (desktopScroll) {
+                desktopScroll.scrollBy({
+                  left: dir * 300,
+                  behavior: "smooth",
+                });
               }
             }
+
+            function goToAmenity(idx) {
+              const track = document.getElementById("amenitiesMobileTrack");
+              if (!track) return;
+              track.scrollTo({
+                left: idx * track.clientWidth,
+                behavior: "smooth",
+              });
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+              const track = document.getElementById("amenitiesMobileTrack");
+              const dots = document.querySelectorAll(".amenity-dot");
+
+              if (track && dots.length) {
+                track.addEventListener(
+                  "scroll",
+                  function () {
+                    const idx = Math.round(
+                      track.scrollLeft / track.clientWidth
+                    );
+                    dots.forEach((dot, i) => {
+                      dot.classList.toggle("active", i === idx);
+                    });
+                  },
+                  { passive: true }
+                );
+              }
+            });
           </script>
         </section>
 
@@ -2940,15 +3116,25 @@
         </div>
 
         <script>
-          document.addEventListener("DOMContentLoaded", function () {
+          (function () {
             const galleryItems = [
-              { src: "images/gallery/g1.webp" },
-              { src: "images/gallery/g2.webp" },
-              { src: "images/gallery/g3.webp" },
-              { src: "images/gallery/g4.webp" },
-              { src: "images/gallery/g5.webp" },
+              { src: "images/gallery/g1.webp", title: "" },
+              { src: "images/gallery/g2.webp", title: "" },
+              { src: "images/gallery/g3.webp", title: "" },
+              { src: "images/gallery/g4.webp", title: "" },
+              { src: "images/gallery/g5.webp", title: "" },
             ];
 
+            const amenityItems = [
+              { src: "images/amenities/a1.webp", title: "Gymnasium" },
+              { src: "images/amenities/a2.webp", title: "Jacuzzi & Wellness Spa" },
+              { src: "images/amenities/a3.webp", title: "Swimming Pool & Kids' Pool" },
+              { src: "images/amenities/a4.webp", title: "Mini Theatre & Lounge" },
+              { src: "images/amenities/a5.webp", title: "Virtual Golf Simulator" },
+              { src: "images/amenities/a6.webp", title: "Yoga & Aerobics Studio" },
+            ];
+
+            let currentItems = galleryItems;
             let currentIndex = 0;
             const lightbox = document.getElementById("lightbox");
             const lightboxImg = document.getElementById("lightboxImg");
@@ -2959,37 +3145,75 @@
             const lightboxNext = document.getElementById("lightboxNext");
 
             function showImage(index) {
-              if (index < 0) index = galleryItems.length - 1;
-              if (index >= galleryItems.length) index = 0;
+              if (!currentItems || currentItems.length === 0) return;
+              if (index < 0) index = currentItems.length - 1;
+              if (index >= currentItems.length) index = 0;
               currentIndex = index;
 
               if (!lightboxImg) return;
               lightboxImg.style.opacity = "0.2";
               setTimeout(() => {
-                lightboxImg.src = galleryItems[currentIndex].src;
-                if (lightboxCaption)
-                  lightboxCaption.textContent =
-                    galleryItems[currentIndex].title;
-                if (lightboxCounter)
+                lightboxImg.src = currentItems[currentIndex].src;
+                if (lightboxCaption) {
+                  const title = currentItems[currentIndex].title || "";
+                  lightboxCaption.textContent = title;
+                  lightboxCaption.style.display = title ? "block" : "none";
+                }
+                if (lightboxCounter) {
                   lightboxCounter.textContent =
-                    currentIndex + 1 + " / " + galleryItems.length;
+                    currentIndex + 1 + " / " + currentItems.length;
+                }
                 lightboxImg.style.opacity = "1";
               }, 120);
             }
 
-            document.querySelectorAll(".bento-card").forEach((card) => {
-              card.addEventListener("click", function () {
-                const idx = parseInt(this.getAttribute("data-index")) || 0;
-                showImage(idx);
-                if (lightbox) lightbox.classList.add("active");
-                document.body.style.overflow = "hidden";
-              });
-            });
+            window.openCustomLightbox = function (items, index) {
+              currentItems = items && items.length ? items : galleryItems;
+              showImage(index || 0);
+              if (lightbox) lightbox.classList.add("active");
+              document.body.style.overflow = "hidden";
+            };
 
             function closeLightbox() {
               if (lightbox) lightbox.classList.remove("active");
               document.body.style.overflow = "";
             }
+
+            document.addEventListener("click", function (e) {
+              const bento = e.target.closest(".bento-card");
+              if (bento) {
+                e.preventDefault();
+                const idx = parseInt(bento.getAttribute("data-index"), 10) || 0;
+                let items = galleryItems;
+                if (
+                  window.GALLERY_DATA &&
+                  window.GALLERY_DATA.images &&
+                  window.GALLERY_DATA.images.length
+                ) {
+                  items = window.GALLERY_DATA.images;
+                }
+                window.openCustomLightbox(items, idx);
+                return;
+              }
+
+              const amenity = e.target.closest(".amenity-card");
+              if (amenity) {
+                e.preventDefault();
+                const idx = parseInt(amenity.getAttribute("data-index"), 10) || 0;
+                let items = amenityItems;
+                if (
+                  window.AMENITIES_DATA &&
+                  window.AMENITIES_DATA.items &&
+                  window.AMENITIES_DATA.items.length
+                ) {
+                  items = window.AMENITIES_DATA.items.map(function (it) {
+                    return { src: it.image, title: it.title };
+                  });
+                }
+                window.openCustomLightbox(items, idx);
+                return;
+              }
+            });
 
             if (lightboxClose)
               lightboxClose.addEventListener("click", closeLightbox);
@@ -3018,7 +3242,7 @@
               if (e.key === "ArrowLeft") showImage(currentIndex - 1);
               if (e.key === "ArrowRight") showImage(currentIndex + 1);
             });
-          });
+          })();
         </script>
         <!--gallery section end-->
         <section
@@ -4094,14 +4318,11 @@
                 <div
                   class="get-in-touch-card position-relative overflow-hidden shadow-sm"
                   style="
-                    background:
-                      linear-gradient(
-                        135deg,
-                        rgba(32, 22, 18, 0.84) 0%,
-                        rgba(48, 26, 18, 0.88) 100%
-                      ),
-                      url(&quot;images/gallery/g6.webp&quot;) center/cover
-                        no-repeat;
+                    background: linear-gradient(
+                      135deg,
+                      #201612 0%,
+                      #301a12 100%
+                    );
                     border-radius: 16px;
                     padding: 44px 38px;
                     border-top: 4px solid #b95734;
@@ -5064,28 +5285,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <div class="mobile-cta d-md-none">
-      <a id="mobile-call" href="tel:+919718344024" class="cta call call-link">
-        <i class="fa-solid fa-phone"></i>
-        <span>Call Now</span>
+      <!-- 1. WhatsApp Button (Left) -->
+      <a
+        id="mobile-whatsapp"
+        href="https://wa.me/919560582493?text=Hi%20I%20am%20interested%20in%20Solcrest"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cta whatsapp"
+      >
+        <div class="whatsapp-icon-wrap">
+          <svg width="22" height="22" fill="#ffffff" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+        </div>
+        <span>WhatsApp</span>
       </a>
 
+      <!-- 2. Enquire Button (Center) -->
       <a
         href="#enquire"
         class="cta enquire"
         data-bs-toggle="modal"
         data-bs-target="#leadModal"
       >
-        <i class="fa-solid fa-pen-to-square"></i>
-        <span>Enquire</span>
+        <div class="enquire-icon-wrap">
+          <svg width="22" height="22" fill="none" stroke="#000000" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+          </svg>
+        </div>
+        <span>ENQUIRE</span>
       </a>
 
-      <a
-        href="https://wa.me/919560582493?text=Hi%20I%20am%20interested%20in%20Solcrest"
-        target="_blank"
-        class="cta whatsapp d-flex align-items-center justify-content-center"
-      >
-        <i class="fa-brands fa-whatsapp fs-5"></i>
-        <span>WhatsApp</span>
+      <!-- 3. Call Button (Right) -->
+      <a id="mobile-call" href="tel:+919718344024" class="cta call call-link">
+        <div class="phone-icon-wrap">
+          <svg width="20" height="20" fill="#ffffff" viewBox="0 0 24 24">
+            <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" />
+          </svg>
+        </div>
+        <span>Call Us</span>
       </a>
     </div>
 
@@ -5095,66 +5333,120 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        /*display: flex;*/
         z-index: 9999;
-        background: linear-gradient(
-          90deg,
-          var(--brand-purple),
-          var(--birla-blue),
-          var(--brand-purple)
-        );
-
-        background-size: 300% 100%;
-        animation: waveMix 4s ease-in-out infinite;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
-        /*gap: 10px;*/
-        /*padding: 5px 5px;*/
         display: none;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+        background: transparent;
       }
       @media (max-width: 768px) {
         .mobile-cta {
           display: flex;
         }
         body {
-          padding-bottom: 40px;
+          padding-bottom: 54px;
         }
       }
 
       .mobile-cta .cta {
         display: flex;
-        flex-direction: row !important;
+        flex-direction: column !important;
         align-items: center;
         justify-content: center;
         flex: 1;
         text-align: center;
-        padding: 10px 5px;
-        font-size: 13px;
-        font-weight: 600;
+        padding: 9px 4px;
         text-decoration: none;
-        color: #fff;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
+        border-radius: 0;
+        border: none !important;
+        gap: 3px;
       }
 
-      .mobile-cta .cta i {
-        font-size: 16px;
+      .mobile-cta .cta span {
+        font-size: 11.5px;
+        letter-spacing: 0.3px;
+        line-height: 1;
+        display: block;
       }
 
-      .mobile-cta .call {
-        background: transparent;
-        border-right: 1px solid white;
+      /* Dev Vandan exact color styling */
+      .mobile-cta .whatsapp {
+        background: #24D366 !important;
+        color: #ffffff !important;
+      }
+      .mobile-cta .whatsapp span {
+        font-weight: 700 !important;
+        color: #ffffff !important;
       }
 
       .mobile-cta .enquire {
-        background: transparent;
-        border-right: 1px solid white;
+        background: linear-gradient(90deg, #d7b440, #f4d87d) !important;
+        color: #000000 !important;
+      }
+      .mobile-cta .enquire span {
+        font-weight: 800 !important;
+        color: #000000 !important;
       }
 
-      .mobile-cta .whatsapp {
-        background: transparent;
+      .mobile-cta .call {
+        background: #1D6DEB !important;
+        color: #ffffff !important;
+      }
+      .mobile-cta .call span {
+        font-weight: 700 !important;
+        color: #ffffff !important;
+      }
+
+      /* Animations (Exact replica from Dev Vandan) */
+      .mobile-cta .phone-icon-wrap {
+        animation: phoneRing 1.8s ease-in-out infinite;
+        transform-origin: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes phoneRing {
+        0%   { transform: rotate(0deg) scale(1); }
+        10%  { transform: rotate(15deg) scale(1.15); }
+        20%  { transform: rotate(-15deg) scale(1.15); }
+        30%  { transform: rotate(12deg) scale(1.1); }
+        40%  { transform: rotate(-12deg) scale(1.1); }
+        50%  { transform: rotate(0deg) scale(1); }
+        100% { transform: rotate(0deg) scale(1); }
+      }
+
+      .mobile-cta .enquire-icon-wrap {
+        animation: chatBounce 2.4s ease-in-out infinite;
+        transform-origin: center bottom;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes chatBounce {
+        0%, 100% { transform: translateY(0) scale(1); }
+        15%      { transform: translateY(-4px) scale(1.15); }
+        25%      { transform: translateY(0) scale(1.02); }
+        35%      { transform: translateY(-2px) scale(1.08); }
+        45%      { transform: translateY(0) scale(1); }
+        100%     { transform: translateY(0) scale(1); }
+      }
+
+      .mobile-cta .whatsapp-icon-wrap {
+        animation: whatsappPulse 2.2s ease-in-out infinite;
+        transform-origin: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @keyframes whatsappPulse {
+        0%, 100% { transform: scale(1) rotate(0deg); }
+        10%      { transform: scale(1.2) rotate(10deg); }
+        20%      { transform: scale(1.1) rotate(-8deg); }
+        30%      { transform: scale(1.2) rotate(6deg); }
+        40%      { transform: scale(1) rotate(0deg); }
+        100%     { transform: scale(1) rotate(0deg); }
       }
 
       /* prevent content overlap */

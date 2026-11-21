@@ -96,12 +96,17 @@ window.initGalleryLightbox = function () {
 
   // Attach click to all dynamic cards
   document.querySelectorAll(".bento-card").forEach((card) => {
-    card.onclick = function () {
+    card.onclick = function (e) {
+      if (e) e.preventDefault();
       const parsedIdx = parseInt(this.getAttribute("data-index"), 10);
       const idx = isNaN(parsedIdx) ? 0 : parsedIdx;
-      showImage(idx);
-      if (lightbox) lightbox.classList.add("active");
-      document.body.style.overflow = "hidden";
+      if (typeof window.openCustomLightbox === "function") {
+        window.openCustomLightbox(galleryItems, idx);
+      } else {
+        showImage(idx);
+        if (lightbox) lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
     };
   });
 };
