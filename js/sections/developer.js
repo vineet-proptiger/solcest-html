@@ -9,11 +9,12 @@
 
 window.DEVELOPER_DATA = {
   // Heading
-  title: "About Bricks & Milestones",
+  title: "About Prestige Group",
 
   // Developer Description
   description:
-    "Bricks & Milestone presents Solcrest, a thoughtfully envisioned residential development focused on contemporary architecture, refined living, and everyday comfort. The project brings together well-designed residences, premium lifestyle amenities, landscaped surroundings, and a sophisticated community environment. With an emphasis on quality, functionality, and modern urban living, Solcrest is designed to offer residents an elevated lifestyle in a well-connected and desirable location.",
+  `The supplied Prestige City brochure describes Prestige Group as an established real estate platform with a multi-city portfolio spanning homes, offices, shopping malls, hotels, interiors and warehousing.
+   This Sector 92 page uses that brochure only as a visual and brand-style reference; project-specific details remain subject to the new Gurugram launch.`,
 
   // Right Side Touch Card
   cardHeading: "GET IN TOUCH",

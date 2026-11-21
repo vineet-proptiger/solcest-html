@@ -12,51 +12,57 @@ window.LOCATION_DATA = {
   // Button Name
   buttonText: "Schedule Free Site Visit",
 
-  // Google Map Embed URL
-  mapUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.136423985392!2d77.65256247598926!3d13.064506987258384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1727771ea001%3A0x6bce5092a1cb8ec4!2sBricks%20%26%20Milestones%20Solcrest!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin",
+  // =====================================================================
+  // 🗺️ GOOGLE MAP EMBED
+  // Google Maps se "Copy HTML" karke jo poora <iframe> code milta hai,
+  // bas use seedha neeche dono backticks ` ` ke beech paste kar dein:
+  // =====================================================================
+  mapIframe: `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28075.30856161178!2d76.87693847431638!3d28.406775200000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3f9397b6b46b%3A0x339d1ae557af8abf!2sPRESTIGE%20GROUP%20GURGAON!5e0!3m2!1sen!2sin!4v1795252507821!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>`,
 
-  // Key Landmarks
+  // (Optional: agar kabhi sirf direct link paste karni ho to yahan kar sakte hain)
+  mapUrl: "",
+
+  // Key Landmarks (Prestige Sector 92 Gurgaon Connectivity)
   landmarks: [
     {
-      name: "Hennur Main Road & ORR",
+      name: "Dwarka Expressway (NPR)",
       distance: "3.5 km",
       icon: "fa-solid fa-road"
     },
     {
-      name: "Ryan International School",
-      distance: "7.8 km",
+      name: "RPS & St. Xavier's School",
+      distance: "2.5 km",
       icon: "fa-solid fa-graduation-cap"
     },
     {
-      name: "Kempegowda International Airport (KIA)",
+      name: "IMT Manesar Commercial Hub",
+      distance: "6.5 km",
+      icon: "fa-solid fa-building"
+    },
+    {
+      name: "IGI Airport (Terminal 3)",
       distance: "28 km",
       icon: "fa-solid fa-plane-departure"
     },
     {
-      name: "Manyata Tech Park",
-      distance: "12 km",
-      icon: "fa-solid fa-building"
-    },
-    {
-      name: "Outer Ring Road (ORR) Junction",
-      distance: "9.5 km",
+      name: "Pataudi Road & Sector Corridor",
+      distance: "0.8 km",
       icon: "fa-solid fa-route"
     },
     {
-      name: "Kalyan Nagar / HRBR Layout",
-      distance: "11 km",
-      icon: "fa-solid fa-city"
+      name: "NH-48 (Delhi-Jaipur Highway)",
+      distance: "7.0 km",
+      icon: "fa-solid fa-road"
     },
     {
-      name: "Delhi Public School (DPS) Bangalore North",
-      distance: "4.2 km",
-      icon: "fa-solid fa-school"
-    },
-    {
-      name: "Manipal Hospital Hebbal",
-      distance: "6.0 km",
+      name: "Aarvy Super Speciality Hospital",
+      distance: "2.5 km",
       icon: "fa-solid fa-hospital"
+    },
+    {
+      name: "Sapphire 90 & 83 Retail Malls",
+      distance: "3.5 km",
+      icon: "fa-solid fa-city"
     }
   ]
 };
@@ -77,9 +83,21 @@ window.renderLocationSection = function () {
     btnSpan.innerHTML = `<i class="bounce-arrow fa-solid text-white fa-download"></i> ${data.buttonText}`;
   }
 
-  // 3. Map URL
+  // 3. Map URL (Accepts both full <iframe> tag and plain URL)
   const iframe = document.querySelector("#location iframe");
-  if (iframe && data.mapUrl) iframe.src = data.mapUrl;
+  const rawMap = data.mapIframe ? data.mapIframe : (data.mapUrl ? data.mapUrl : "");
+  if (iframe && rawMap) {
+    let cleanUrl = String(rawMap).trim();
+    if (cleanUrl.indexOf("<iframe") !== -1 && cleanUrl.indexOf("src=") !== -1) {
+      const match = cleanUrl.match(/src=["']([^"']+)["']/);
+      if (match && match[1]) {
+        cleanUrl = match[1];
+      }
+    }
+    if (cleanUrl) {
+      iframe.src = cleanUrl;
+    }
+  }
 
   // 4. Landmarks List
   const leftContainer = document.querySelector(
@@ -89,7 +107,9 @@ window.renderLocationSection = function () {
     "#location .col-lg-6:last-child .circuit-col > div[style*='flex-direction: column']"
   );
 
-  if (!leftContainer || !rightContainer || !data.landmarks) return;
+  if (!leftContainer) return;
+  if (!rightContainer) return;
+  if (!data.landmarks) return;
 
   const half = Math.ceil(data.landmarks.length / 2);
   const leftItems = data.landmarks.slice(0, half);
@@ -113,13 +133,13 @@ window.renderLocationSection = function () {
         "
       >
         <div style="width: 35px; flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end;">
-          <div style="height: 2px; width: 16px; background-color: #b95734; border-radius: 999px;"></div>
+          <div style="height: 2px; width: 16px; background-color: var(--theme-primary, #b95734); border-radius: 999px;"></div>
         </div>
         <div class="circuit-hex" style="position: relative; width: 44px; height: 44px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease;">
           <svg viewBox="0 0 44 44" style="position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 2px 5px rgba(185, 87, 52, 0.2));">
-            <polygon points="22,3 38.5,12.5 38.5,31.5 22,41 5.5,31.5 5.5,12.5" fill="#fdfbf7" stroke="#B95734" stroke-width="2.2" stroke-linejoin="round" />
+            <polygon points="22,3 38.5,12.5 38.5,31.5 22,41 5.5,31.5 5.5,12.5" fill="#fdfbf7" stroke="var(--theme-primary, #B95734)" stroke-width="2.2" stroke-linejoin="round" />
           </svg>
-          <i class="${item.icon}" style="position: relative; z-index: 10; font-size: 14px; color: #b95734;"></i>
+          <i class="${item.icon}" style="position: relative; z-index: 10; font-size: 14px; color: var(--theme-primary, #b95734);"></i>
         </div>
         <div style="margin-left: 16px; flex-grow: 1; display: flex; align-items: center; justify-content: space-between;">
           <h4 class="circuit-title" style="font-size: 15px; font-weight: 700; margin: 0; letter-spacing: -0.2px;">

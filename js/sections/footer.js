@@ -1,7 +1,7 @@
 
 window.FOOTER_DATA = {
   logo: "images/logo/logo.webp",
-  reraNumber: "PRM/KA/RERA/1251/446/PR/151225/008336",
+  reraNumber: "Comming Soon",
   // salesName: "Solcrest Team",
   copyright: "© 2026 Solcrest. All Rights Reserved."
 };

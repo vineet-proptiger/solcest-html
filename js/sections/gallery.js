@@ -12,13 +12,13 @@ window.GALLERY_DATA = {
   // Button Name (if button exists)
   buttonText: "View Gallery",
 
-  // Images
+  // Images (Updated to accurately match the project gallery photos)
   images: [
-    { src: "images/gallery/g1.webp", title: "Solcrest Elevation View" },
-    { src: "images/gallery/g2.webp", title: "Solcrest Living Spaces" },
-    { src: "images/gallery/g3.webp", title: "Solcrest Swimming Pool" },
-    { src: "images/gallery/g4.webp", title: "Solcrest Clubhouse Lounge" },
-    { src: "images/gallery/g5.webp", title: "Solcrest Master Bedroom" }
+    { src: "images/gallery/g1.webp", title: "Designer Kids Bedroom" },
+    { src: "images/gallery/g2.webp", title: "Clubhouse & Central Plaza" },
+    { src: "images/gallery/g3.webp", title: "Master Bedroom Suite" },
+    { src: "images/gallery/g4.webp", title: "Luxury Reception & Wellness Lounge" },
+    { src: "images/gallery/g5.webp", title: "Panoramic Balcony Deck" }
   ]
 };
 

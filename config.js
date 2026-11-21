@@ -20,11 +20,11 @@ window.THEME_COLORS = {
 // 2. Backend API & Google Sheet Settings
 // ===============================================================
 window.PROJECT_ID = "3528118";
-window.PROJECT_NAME = "Solcrest";
+window.PROJECT_NAME = "Prestige Sector 92";
 window.CITY_ID = "2";
-window.CITY_DISPLAY = "Bengalore";
-window.CITY_SLUG = "bengalore";
-window.SHEET_NAME = "bangalore";
+window.CITY_DISPLAY = "gurgaon";
+window.CITY_SLUG = "gurgaon";
+window.SHEET_NAME = "gurgaon";
 window.SECRET_KEY = "6c7f9ad8b2a1e0f4d5a8c0b9f6e2a4d190";
 
 window.SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbw2MGrCI0lVGZZD049RrqM52ubNIHHZLzuk7mIg9KMVacJREV9sw05jnPMvT5OeNtWt/exec";
@@ -238,6 +238,11 @@ window.applyThemeColors = function () {
     .rs-lead-form .btn-primary i,
     .rs-lead-form .btn-primary .bi {
       color: ${btnText} !important;
+    }
+
+    .hero-badge-pill,
+    .hero-badge-pill * {
+      text-shadow: none !important;
     }
 
     /* Accent Borders, Dots & Lines */

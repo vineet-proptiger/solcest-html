@@ -36,8 +36,8 @@ window.HERO_DATA = {
       icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B95734" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="#B95734" fill-opacity="0.22" /></svg>'
     },
     {
-      title: "9.3-Acre",
-      sub: "High-Rise Community",
+      title: "17.2-Acre",
+      sub: "Project Area",
       icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B95734" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16" /><path d="M7 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18" /><path d="M11 6h2" /><path d="M11 10h2" /><path d="M11 14h2" /><path d="M11 18h2" /></svg>'
     },
     {
