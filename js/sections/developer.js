@@ -5,7 +5,7 @@
  * Edit this file to update the About Developer section!
  */
 
-// window.DEVELOPER_NAME = "Bricks & Milestones";
+// window.DEVELOPER_NAME = "Prestige Group";
 
 window.DEVELOPER_DATA = {
   // Heading

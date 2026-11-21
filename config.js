@@ -536,6 +536,11 @@ window.applyProjectConfig = function () {
     if (window.PROJECT_NAME) {
       document.title = "Privacy Policy | " + window.PROJECT_NAME;
     }
+  } else {
+    if (window.PROJECT_NAME) {
+      const city = window.CITY_DISPLAY ? " " + window.CITY_DISPLAY.charAt(0).toUpperCase() + window.CITY_DISPLAY.slice(1) : "";
+      document.title = window.PROJECT_NAME + city + " | Luxury Residences";
+    }
   }
 
   // Update Global Buttons
