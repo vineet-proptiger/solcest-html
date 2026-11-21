@@ -75,7 +75,7 @@
     <meta http-equiv="Expires" content="0" />
 
     <!-- Project Config & Attribution Tracking -->
-    <script src="config.js?v=4.5"></script>
+    <script src="config.js?v=4.6"></script>
     <script src="formMeta.js?v=2.0"></script>
 
     <title>by Bricks & Milestone | Premium Residences</title>
@@ -4942,292 +4942,175 @@
     </div>
     <!--parent div end-->
 
-    <!-- Lead Modal -->
+    <!-- Lead Modal (Dev Vandan Design with Project Theme Colors) -->
     <div class="modal fade" id="leadModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered custom-modal-width">
-        <div class="modal-content overflow-hidden" style="border-radius: 5px">
-          <div class="row g-0">
-            <!-- LEFT: WE PROMISE (DESKTOP LEFT, MOBILE BOTTOM) -->
+      <div class="modal-dialog modal-dialog-centered" style="max-width: 460px; margin: 1.75rem auto;">
+        <div
+          class="modal-content border-0"
+          style="background: #ffffff; border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.3); position: relative; padding: 36px 30px 30px; max-height: 95vh; overflow-y: auto;"
+        >
+          <!-- Close Button -->
+          <button
+            type="button"
+            class="modal-close-btn"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            style="position: absolute; top: 16px; right: 18px; background: #f3f4f6; border: none; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: #4b5563; line-height: 1; border-radius: 50%; transition: background 0.2s, color 0.2s; z-index: 10;"
+            onmouseenter="this.style.background='var(--theme-hover, #152a42)'; this.style.color='#ffffff';"
+            onmouseleave="this.style.background='#f3f4f6'; this.style.color='#4b5563';"
+          >
+            &times;
+          </button>
+
+          <!-- Heading -->
+          <h2 style="color: #222222; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 22px; margin: 0 0 24px; letter-spacing: 0.02em; text-transform: uppercase; text-align: center;">
+            ENQUIRE NOW
+          </h2>
+
+          <!-- Form -->
+          <form
+            id="modalForm"
+            class="rs-lead-form"
+            method="POST"
+            action="/submit-lead"
+            data-endpoint="/submit-lead"
+            novalidate
+            onsubmit="return window.RSLeadSubmit ? RSLeadSubmit(this, event) : true;"
+          >
+            <!-- Hidden inputs -->
+            <input type="hidden" name="form_name" value="Popup Modal" />
+            <input type="hidden" name="recaptcha_token" class="recaptcha_token" />
+            <input type="hidden" name="country" value="india" />
+            <input type="hidden" name="country_code" value="+91" />
+            <input type="hidden" name="utm_source" />
+            <input type="hidden" name="utm_medium" />
+            <input type="hidden" name="utm_campaign" />
+            <input type="hidden" name="utm_term" />
+            <input type="hidden" name="utm_content" />
+            <input type="hidden" name="gclid" />
+            <input type="hidden" name="gbraid" />
+            <input type="hidden" name="wbraid" />
+            <input type="hidden" name="fbclid" />
+            <input type="hidden" name="device" />
+            <input type="hidden" name="referrer" />
+            <input type="hidden" name="Ipaddress" />
+            <input type="hidden" name="landing_page" />
+            <input type="hidden" name="projectId" value="" />
+            <input type="hidden" name="city" value="" />
+            <input type="hidden" name="sheet_name" value="" />
+            <input type="hidden" name="secret" value="" />
+            <input type="hidden" name="projectName" value="" />
+
+            <!-- Honeypot -->
             <div
-              class="col-lg-3 order-2 order-lg-1 d-flex align-items-center justify-content-center align-self-center"
+              style="
+                position: absolute;
+                left: -9999px;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+              "
             >
-              <div class="promise-section text-center h-100">
-                <h4 class="promise-title">We Promise</h4>
-
-                <div class="promise-row flex-lg-column">
-                  <div class="promise-item">
-                    <i class="fa-solid fa-headset"></i>
-                    <span>Instant Call Back</span>
-                  </div>
-
-                  <div class="promise-item">
-                    <i class="fa-solid fa-car"></i>
-                    <span>Free Site Visit</span>
-                  </div>
-
-                  <div class="promise-item">
-                    <i class="fa-solid fa-tags"></i>
-                    <span>Unmatched Price</span>
-                  </div>
-                </div>
-              </div>
+              <label>Do not fill this field</label>
+              <input type="text" name="website" />
             </div>
 
-            <!-- RIGHT: FORM + HEADER + CLOSE -->
-            <div class="col-lg-9 order-1 order-lg-2 bg-white">
-              <!-- Close Button -->
-              <div class="d-flex justify-content-end pt-3 pe-3">
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-
-              <!-- Header -->
-              <div class="text-center px-4 pb-3">
-                <h4 class="fw-bold mb-0" style="color: #114352">
-                  Book Free Site Visit
-                </h4>
-
-                <!--<p class="fw-bold mb-1" style="color:#114352;">-->
-                <!--  Booking Open Now– Submit EOI-->
-                <!--</p>-->
-                <img
-                  src="images/logo/logo.webp"
-                  class="mt-2 logo"
-                  style="width: 180px"
-                />
-              </div>
-
-              <!-- Form -->
-              <div class="p-4">
-                <form
-                  id="globalForm"
-                  class="rs-lead-form needs-validation bg-white w-full px-0 rounded-1"
-                  method="POST"
-                  action="/submit-lead"
-                  data-endpoint="/submit-lead"
-                  novalidate
-                  onsubmit="
-                    return window.RSLeadSubmit
-                      ? RSLeadSubmit(this, event)
-                      : true;
-                  "
-                >
-                  <!-- Hidden fields -->
-                  <input type="hidden" name="form_name" value="" />
-
-                  <div class="row g-3">
-                    <!-- Name -->
-                    <div class="col-12">
-                      <input
-                        type="text"
-                        class="form-control border input-p"
-                        name="fullname"
-                        placeholder="Enter full name"
-                        pattern="^[A-Za-z\s]+$"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Please enter your name (letters only)
-                      </div>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="col-12">
-                      <input
-                        type="email"
-                        class="form-control border input-p"
-                        name="email"
-                        placeholder="Enter email address (Optional)"
-                      />
-                      <div class="invalid-feedback">
-                        Please enter a valid email address
-                      </div>
-                    </div>
-
-                    <!-- Phone -->
-                    <div class="col-12">
-                      <div class="d-flex gap-2">
-                        <select
-                          class="form-select border d-none"
-                          name="country_code"
-                          style="max-width: 25%; height: 48px"
-                          required
-                        >
-                          <option value="+91" selected>+91</option>
-                        </select>
-
-                        <input
-                          type="tel"
-                          class="form-control border input-p"
-                          name="phone"
-                          placeholder="10-digit mobile number"
-                          pattern="[0-9]{10}"
-                          maxlength="10"
-                          required
-                        />
-                      </div>
-                      <div class="invalid-feedback">
-                        Please enter a valid 10-digit mobile number
-                      </div>
-                    </div>
-
-                    <!-- Consent -->
-                    <div class="col-12">
-                      <div class="form-check mt-2">
-                        <input
-                          class="input-p"
-                          type="checkbox"
-                          id="gdprConsent"
-                          checked
-                          required
-                        />
-                        <label
-                          class="form-check-label small text-muted"
-                          for="gdprConsent"
-                        >
-                          I agree to receive updates as per the
-                          <a href="privacy-policy.html" target="_blank"
-                            >Privacy Policy</a
-                          >.
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Status message -->
-                  <div class="text-center mt-3 small" data-form-message></div>
-                  <!-- Submit -->
-                  <div class="d-grid mt-3">
-                    <button
-                      class="btn btn-primary rounded-pill py-2 fw-semibold text-center"
-                      type="submit"
-                    >
-                      <i class="bi bi-send me-1 text-white"></i> Schedule Visit
-                    </button>
-                  </div>
-                  <!-- Hidden Metadata -->
-                  <input type="hidden" name="form_name" value="Global Form" />
-                  <input
-                    type="hidden"
-                    name="recaptcha_token"
-                    class="recaptcha_token"
-                  />
-                  <input type="hidden" name="country" value="india" />
-                  <input type="hidden" name="utm_source" />
-                  <input type="hidden" name="utm_medium" />
-                  <input type="hidden" name="utm_campaign" />
-                  <input type="hidden" name="utm_term" />
-                  <input type="hidden" name="utm_content" />
-                  <input type="hidden" name="gclid" />
-                  <input type="hidden" name="gbraid" />
-                  <input type="hidden" name="wbraid" />
-                  <input type="hidden" name="fbclid" />
-                  <input type="hidden" name="device" />
-                  <input type="hidden" name="referrer" />
-                  <input type="hidden" name="Ipaddress" />
-                  <input type="hidden" name="landing_page" />
-                  <input type="hidden" name="projectId" value="" />
-                  <input type="hidden" name="city" value="" />
-                  <input type="hidden" name="sheet_name" value="" />
-                  <input type="hidden" name="secret" value="" />
-                  <input type="hidden" name="projectName" value="" />
-
-                  <!-- Honeypot -->
-                  <div
-                    style="
-                      position: absolute;
-                      left: -9999px;
-                      width: 1px;
-                      height: 1px;
-                      overflow: hidden;
-                    "
-                  >
-                    <label>Do not fill this field</label>
-                    <input type="text" name="website" />
-                  </div>
-                </form>
-
-                <link rel="stylesheet" href="/form.css" />
-              </div>
+            <!-- Name -->
+            <div style="margin-bottom: 16px;">
+              <input
+                name="fullname"
+                type="text"
+                required
+                placeholder="Enter your name"
+                pattern="^[A-Za-z\s]+$"
+                style="width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 13px 16px; color: #212529; font-size: 14.5px; font-family: 'Poppins', sans-serif; outline: none; transition: border-color 0.2s, box-shadow 0.2s;"
+                onfocus="this.style.borderColor='var(--theme-primary, #b95734)'; this.style.boxShadow='0 0 0 3px rgba(185, 87, 52, 0.15)';"
+                onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none';"
+              />
             </div>
-          </div>
+
+            <!-- Email -->
+            <div style="margin-bottom: 16px;">
+              <input
+                name="email"
+                type="email"
+                placeholder="Enter your email (Optional)"
+                style="width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 13px 16px; color: #212529; font-size: 14.5px; font-family: 'Poppins', sans-serif; outline: none; transition: border-color 0.2s, box-shadow 0.2s;"
+                onfocus="this.style.borderColor='var(--theme-primary, #b95734)'; this.style.boxShadow='0 0 0 3px rgba(185, 87, 52, 0.15)';"
+                onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none';"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div style="margin-bottom: 18px;">
+              <input
+                name="phone"
+                type="tel"
+                required
+                pattern="[0-9]{10}"
+                maxlength="10"
+                placeholder="Enter your phone number"
+                style="width: 100%; background: #ffffff; border: 1px solid #d1d5db; border-radius: 8px; padding: 13px 16px; color: #212529; font-size: 14.5px; font-family: 'Poppins', sans-serif; outline: none; transition: border-color 0.2s, box-shadow 0.2s;"
+                onfocus="this.style.borderColor='var(--theme-primary, #b95734)'; this.style.boxShadow='0 0 0 3px rgba(185, 87, 52, 0.15)';"
+                onblur="this.style.borderColor='#d1d5db'; this.style.boxShadow='none';"
+              />
+            </div>
+
+            <!-- Validation & Status Message -->
+            <div data-form-message class="text-center font-semibold mb-2" style="font-size: 13px;"></div>
+
+            <!-- Consent -->
+            <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 22px;">
+              <input
+                type="checkbox"
+                id="popup-privacy"
+                required
+                checked
+                style="accent-color: var(--theme-primary, #b95734); margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; cursor: pointer;"
+              />
+              <label for="popup-privacy" style="font-size: 12px; color: #6b7280; line-height: 1.5; cursor: pointer; margin: 0;">
+                I agree to receive updates as per the <a href="privacy-policy.html" target="_blank" style="color: var(--theme-primary, #b95734); font-weight: 600; text-decoration: underline;">Privacy Policy</a>.
+              </label>
+            </div>
+
+            <!-- Submit -->
+            <div style="display: flex; justify-content: center;">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="background: var(--theme-primary, #b95734); color: #ffffff; border: 2px solid var(--theme-primary, #b95734); padding: 14px 48px; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.05em; cursor: pointer; border-radius: 8px; transition: all 0.3s ease; width: 100%; box-shadow: 0 4px 14px rgba(185, 87, 52, 0.35);"
+                onmouseenter="this.style.background='var(--theme-hover, #152a42)'; this.style.borderColor='var(--theme-hover, #152a42)';"
+                onmouseleave="this.style.background='var(--theme-primary, #b95734)'; this.style.borderColor='var(--theme-primary, #b95734)';"
+              >
+                SUBMIT
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
     <style>
-      .custom-modal-width {
-        max-width: 600px; /* ideal for 2-column form modal */
-        width: 100%;
+      #leadModal.modal {
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
       }
-      /* Prevent overflow */
-      .modal-content {
-        overflow: hidden;
+      #leadModal .modal-dialog {
+        max-width: 460px;
+        width: 92%;
+        margin: 1.75rem auto;
       }
-      /* Left panel width control */
-      .promise-section {
-        max-width: 100%;
+      #leadModal .modal-content {
+        border: none !important;
+        border-radius: 16px !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3) !important;
       }
-      /* Ensure columns don’t stretch */
-      .modal .row {
-        margin: 0;
-      }
-      .btn-close {
-        /*background-color: var(--green);*/
-        /*color: white;*/
-        opacity: 1;
-      }
-
-      .promise-section {
-        padding: 20px 20px;
-        background: #fff;
-        height: 100%;
-      }
-
-      .promise-title {
-        color: var(--green);
-        font-weight: 600;
-        margin-bottom: 30px;
-        font-size: 18px;
-      }
-
-      .promise-row {
-        display: flex;
-        justify-content: center;
-        gap: 35px;
-      }
-
-      .promise-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        color: var(--green);
-        font-weight: 500;
-        font-size: 14px;
-      }
-
-      .promise-item i {
-        font-size: 28px;
-      }
-
-      /* MOBILE */
-      @media (max-width: 991px) {
-        .promise-row {
-          flex-direction: row;
-          gap: 20px;
+      @media (max-width: 576px) {
+        #leadModal .modal-dialog {
+          margin: 1rem auto;
+          width: 95%;
         }
-
-        .promise-section {
-          border-top: 1px solid #eee;
-        }
-        .custom-modal-width {
-          max-width: 95%;
-        }
-        .promise-title {
-          display: none;
+        #leadModal .modal-content {
+          padding: 28px 20px 24px !important;
         }
       }
     </style>
