@@ -75,7 +75,7 @@
     <meta http-equiv="Expires" content="0" />
 
     <!-- Project Config & Attribution Tracking -->
-    <script src="config.js?v=3.3"></script>
+    <script src="config.js?v=4.5"></script>
     <script src="formMeta.js?v=2.0"></script>
 
     <title>by Bricks & Milestone | Premium Residences</title>
@@ -493,22 +493,20 @@
         transition: all 0.3s ease;
       }
       /* Global button hover matching right-side form submit button (#09223f) */
-      .orbit-btn:not(.whatsapp):not(.btn-success):hover,
+      .orbit-btn:not(.whatsapp):not(.btn-success):not(.plan-btn):hover,
       .btn-primary:not(.whatsapp):not(.btn-success):hover,
       .hero-bar-btn:hover,
-      .btn-brochure:hover,
-      .plan-btn:hover {
+      .btn-brochure:hover {
         background: var(--theme-hover, #09223f) !important;
         box-shadow: 0 14px 35px rgba(11, 45, 82, 0.45) !important;
         color: #ffffff !important;
         border-color: var(--theme-hover, #09223f) !important;
         transform: translateY(-2px);
       }
-      .orbit-btn:not(.whatsapp):not(.btn-success):hover *,
+      .orbit-btn:not(.whatsapp):not(.btn-success):not(.plan-btn):hover *,
       .btn-primary:not(.whatsapp):not(.btn-success):hover *,
       .hero-bar-btn:hover *,
-      .btn-brochure:hover *,
-      .plan-btn:hover * {
+      .btn-brochure:hover * {
         color: #ffffff !important;
       }
 
@@ -967,18 +965,29 @@
         gap: 6px;
         background: var(--theme-primary, #b95734) !important;
         color: #ffffff;
-        font-size: 13.5px;
-        font-weight: 700;
+        font-size: 16px;
+        font-weight: 500;
         letter-spacing: 0.3px;
         font-family: "Poppins", sans-serif;
-        padding: 6px 24px;
-        border-radius: 50px;
-        border: 1px solid rgba(255, 255, 255, 0.65);
-        box-shadow:
-          0 4px 16px rgba(185, 87, 52, 0.5),
-          inset 0 1px 1px rgba(255, 255, 255, 0.65);
+        padding: 5px 16px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         text-shadow: none !important;
+        cursor: default;
         pointer-events: auto;
+      }
+
+      .hero-badge-pill .hero-price-prefix {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .hero-badge-pill .blinking-price {
+        font-weight: 700;
+        font-size: 16px;
+        color: #ffffff;
       }
 
       /* Sharp Pure White Price On-Off Blinking Effect (Matching Current Project) */
@@ -996,7 +1005,7 @@
       .blinking-price,
       .price-bling-anim {
         display: inline-block;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 800;
         letter-spacing: 0.5px;
         animation: priceBlinkOnOff 1s infinite;
@@ -1060,7 +1069,7 @@
       .hero-bar-title {
         color: #111111;
         font-weight: 700;
-        font-size: 13px;
+        font-size: 16px;
         font-family: "Poppins", sans-serif;
         letter-spacing: -0.2px;
       }
@@ -1068,7 +1077,7 @@
       .hero-bar-sub {
         color: #444444;
         font-weight: 500;
-        font-size: 11.5px;
+        font-size: 14px;
         font-family: "Poppins", sans-serif;
       }
 
@@ -1254,7 +1263,7 @@
       }
 
       .mobile-usp-sub {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 500;
         color: #555555;
         font-family: "Poppins", sans-serif;
@@ -1397,7 +1406,7 @@
                 </div>
                 <div class="d-flex justify-content-center w-100">
                   <div class="hero-badge-pill">
-                    Price Starts at <span class="blinking-price price-bling-anim">₹5 Cr*</span>
+                    <span class="hero-price-prefix">Price Starts at</span> <span class="blinking-price price-bling-anim">₹1.46 Cr*</span>
                   </div>
                 </div>
               </div>
@@ -1645,7 +1654,7 @@
                 <p
                   class="section-text"
                   style="
-                    font-size: 15px;
+                    font-size: 16px; 
                     line-height: 1.9;
                     color: #495057;
                     font-family: &quot;Poppins&quot;, sans-serif;
@@ -1682,60 +1691,63 @@
                       class="pe-4 pe-lg-5"
                       style="border-right: 1.5px solid #d5cec5"
                     >
+                      <span
+                        style="
+                          color: #6c757d;
+                          font-size: 11.5px;
+                          font-weight: 700;
+                          letter-spacing: 1px;
+                          text-transform: uppercase;
+                          font-family: &quot;Poppins&quot;, sans-serif;
+                          display: block;
+                          margin-bottom: 2px;
+                        "
+                      >
+                        MODERN AMENITIES
+                      </span>
                       <h3
                         style="
                           color: #0b2d52;
-                          font-size: 30px;
-                          font-weight: 800;
-                          margin: 0 0 3px;
+                          font-size: 22px;
+                          font-weight: 600;
+                          margin: 0;
                           font-family: &quot;Poppins&quot;, sans-serif;
                           letter-spacing: -0.5px;
                         "
                       >
                         20+
                       </h3>
-                      <span
-                        style="
-                          color: #6c757d;
-                          font-size: 11.5px;
-                          font-weight: 700;
-                          letter-spacing: 1px;
-                          text-transform: uppercase;
-                          font-family: &quot;Poppins&quot;, sans-serif;
-                          display: block;
-                        "
-                      >
-                        MODERN AMENITIES
-                      </span>
                     </div>
 
                     <!-- Stat 2 -->
                     <div>
-                      <h3
-                        style="
-                          color: #0b2d52;
-                          font-size: 30px;
-                          font-weight: 800;
-                          margin: 0 0 3px;
-                          font-family: &quot;Poppins&quot;, sans-serif;
-                          letter-spacing: -0.5px;
-                        "
-                      >
-                        74
-                      </h3>
                       <span
                         style="
                           color: #6c757d;
                           font-size: 11.5px;
-                          font-weight: 700;
+                          font-weight: 600;
                           letter-spacing: 1px;
                           text-transform: uppercase;
                           font-family: &quot;Poppins&quot;, sans-serif;
                           display: block;
+                          margin-bottom: 2px;
                         "
                       >
-                        LUXURY VILLAS
+                        CONNECTIVITY
                       </span>
+                      <h3
+                        style="
+                          color: #0b2d52;
+                          font-size: 18px;
+                          font-weight: 600;
+                          margin: 0;
+                          font-family: &quot;Poppins&quot;, sans-serif;
+                          letter-spacing: -0.3px;
+                          line-height: 1.25;
+                        "
+                      >
+                        Close to Dwarka Expressway
+                      </h3>
                     </div>
                   </div>
                 </div>
@@ -1792,7 +1804,7 @@
             }
 
             .section-text {
-              font-size: 15px;
+              font-size: 16px;
               line-height: 1.9;
               color: #495057;
               text-align: justify;
@@ -1977,10 +1989,10 @@
             .highlight-ribbon-text {
               color: var(--theme-text, #444444);
               font-size: 15px;
-              font-weight: 600;
+              font-weight: 400;
               font-family: "Poppins", sans-serif;
-              line-height: 1.35;
-              letter-spacing: -0.2px;
+              line-height: 1.45;
+              letter-spacing: -0.1px;
               transition: color 0.2s ease;
             }
 
@@ -2097,7 +2109,7 @@
           </div>
           <style>
             .pricing-box {
-              border-radius: 24px;
+              border-radius: 8px;
               background: var(--green);
               color: #fff;
             }
@@ -2114,12 +2126,13 @@
               animation: waveMix 2s ease-in-out infinite;
 
               padding: 16px 20px;
-              font-size: 15px;
+              font-size: 16px;
             }
 
             .pricing-row {
               background: #f6f3ee;
               color: #000;
+              font-size: 16px;
               padding: 16px 20px;
               border-top: 1px solid rgba(0, 0, 0, 0.05);
             }
@@ -2192,7 +2205,7 @@
                 <div class="plan-overlay-text">Master Plan Layout</div>
                 <div class="plan-overlay">
                   <button
-                    class="orbit-btn plan-btn w-25"
+                    class="orbit-btn plan-btn"
                     data-bs-toggle="modal"
                     data-bs-target="#leadModal"
                   >
@@ -2210,7 +2223,7 @@
                 <div class="plan-overlay-text">Unit Plan Layout</div>
                 <div class="plan-overlay">
                   <button
-                    class="orbit-btn plan-btn w-25"
+                    class="orbit-btn plan-btn"
                     data-bs-toggle="modal"
                     data-bs-target="#leadModal"
                   >
@@ -2289,6 +2302,21 @@
               z-index: 4; /* 🔑 highest */
               transform: translateY(-20px);
               transition: all 0.4s ease;
+              width: auto !important;
+              min-width: 175px !important;
+              padding: 10px 24px !important;
+              font-size: 15px !important;
+              font-weight: 600 !important;
+              white-space: nowrap !important;
+              border-radius: 6px !important;
+              background: var(--theme-primary, #b95734) !important;
+              color: #ffffff !important;
+              border: 1px solid var(--theme-primary, #b95734) !important;
+              box-shadow: 0 10px 28px rgba(185, 87, 52, 0.45) !important;
+            }
+
+            .plan-btn::before {
+              display: none !important;
             }
 
             /* Hover Effects */
@@ -2304,8 +2332,15 @@
             .plan-btn:hover {
               transform: translateY(0);
               z-index: 9999;
-              background: var(--theme-hover, #09223f) !important;
-              box-shadow: 0 14px 35px rgba(11, 45, 82, 0.45) !important;
+              background: var(--theme-primary, #b95734) !important;
+              background-color: var(--theme-primary, #b95734) !important;
+              box-shadow: 0 12px 30px rgba(185, 87, 52, 0.55) !important;
+              color: #ffffff !important;
+              border-color: var(--theme-primary, #b95734) !important;
+            }
+
+            .plan-card:hover .plan-btn *,
+            .plan-btn:hover * {
               color: #ffffff !important;
             }
           </style>
@@ -3462,7 +3497,7 @@
                                 class="circuit-title"
                                 style="
                                   color: var(--theme-text, #444444);
-                                  font-size: 15.5px;
+                                  font-size: 16px;
                                   font-weight: 600;
                                   margin: 0;
                                   line-height: 1.35;
@@ -3570,7 +3605,7 @@
                                 class="circuit-title"
                                 style="
                                   color: var(--theme-text, #444444);
-                                  font-size: 15.5px;
+                                  font-size: 16px;
                                   font-weight: 600;
                                   margin: 0;
                                   line-height: 1.35;
@@ -3678,7 +3713,7 @@
                                 class="circuit-title"
                                 style="
                                   color: var(--theme-text, #444444);
-                                  font-size: 15.5px;
+                                  font-size: 16px;
                                   font-weight: 600;
                                   margin: 0;
                                   line-height: 1.35;
@@ -3786,7 +3821,7 @@
                                 class="circuit-title"
                                 style="
                                   color: var(--theme-text, #444444);
-                                  font-size: 15.5px;
+                                  font-size: 16px;
                                   font-weight: 600;
                                   margin: 0;
                                   line-height: 1.35;
@@ -3916,7 +3951,7 @@
                                 class="circuit-title"
                                 style="
                                   color: var(--theme-text, #444444);
-                                  font-size: 15.5px;
+                                  font-size: 16px;
                                   font-weight: 600;
                                   margin: 0;
                                   line-height: 1.35;
@@ -4024,7 +4059,7 @@
                                 class="circuit-title"
                                 style="
                                   color: var(--theme-text, #444444);
-                                  font-size: 15.5px;
+                                  font-size: 16px;
                                   font-weight: 600;
                                   margin: 0;
                                   line-height: 1.35;
@@ -4132,7 +4167,7 @@
                                 class="circuit-title"
                                 style="
                                   color: var(--theme-text, #444444);
-                                  font-size: 15.5px;
+                                  font-size: 16px;
                                   font-weight: 600;
                                   margin: 0;
                                   line-height: 1.35;
@@ -4240,7 +4275,7 @@
                                 class="circuit-title"
                                 style="
                                   color: var(--theme-text, #444444);
-                                  font-size: 15.5px;
+                                  font-size: 16px;
                                   font-weight: 600;
                                   margin: 0;
                                   line-height: 1.35;
@@ -4338,7 +4373,7 @@
               <div class="col-lg-6 pe-lg-4" style="margin-top: 0 !important">
                 <p
                   style="
-                    font-size: 15.5px;
+                    font-size: 16px;
                     line-height: 1.95;
                     color: #495057;
                     font-family: &quot;Poppins&quot;, sans-serif;
@@ -4420,7 +4455,7 @@
                   <p
                     style="
                       color: rgba(255, 255, 255, 0.92);
-                      font-size: 15.5px;
+                      font-size: 16px;
                       line-height: 1.85;
                       margin: 0;
                       font-family: &quot;Poppins&quot;, sans-serif;
@@ -4635,11 +4670,11 @@
             <div
               class="container d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2"
             >
-              <p class="mb-0" style="color: #ffffff;">© 2026 . All Rights Reserved.</p>
+              <p class="mb-0" style="color: #ffffff !important;">© 2026 . All Rights Reserved.</p>
               <div>
                 <a
                   href="privacy-policy.html"
-                  style="color: #ffffff; text-decoration: none; font-size: 12px"
+                  style="color: #ffffff !important; text-decoration: none; font-size: 12px"
                   onmouseover="this.style.textDecoration = 'underline'"
                   onmouseout="this.style.textDecoration = 'none'"
                   >Privacy Policy</a
@@ -4669,8 +4704,8 @@
             .footer-disclaimer p {
               max-width: 1100px;
               margin: 0 auto;
-              font-size: 12px;
-              /*line-height: 4;*/
+              font-size: 10px !important;
+              line-height: 1.6;
               color: #555;
             }
 
@@ -4687,10 +4722,15 @@
 
             .footer-bottom {
               background: var(--green);
-              color: #fff;
+              color: #ffffff !important;
               margin-top: 30px;
               padding: 12px 0;
               font-size: 12px;
+            }
+
+            .footer-bottom p,
+            .footer-bottom a {
+              color: #ffffff !important;
             }
 
             /* Mobile */
@@ -5245,12 +5285,15 @@
           if (dPill && mPriceBox) {
             const dBlink = dPill.querySelector(".blinking-price");
             const priceVal = dBlink ? dBlink.textContent.trim() : "";
-            let prefix = "Price Starts at";
-            dPill.childNodes.forEach((node) => {
-              if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
-                prefix = node.textContent.trim();
-              }
-            });
+            const prefixEl = dPill.querySelector(".hero-price-prefix");
+            let prefix = prefixEl ? prefixEl.textContent.trim() : "Price Starts at";
+            if (!prefixEl) {
+              dPill.childNodes.forEach((node) => {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+                  prefix = node.textContent.trim();
+                }
+              });
+            }
             mPriceBox.innerHTML = `<span class="price-prefix">${prefix}</span> <span class="price-bling-anim-mobile">${priceVal}</span>`;
           }
 
@@ -5316,17 +5359,17 @@
     <!-- ======================================================== -->
     <!-- MODULAR SECTION DATA SCRIPTS (Edit any file in js/sections/ to update UI) -->
     <!-- ======================================================== -->
-    <script src="js/sections/hero.js?v=1.0"></script>
-    <script src="js/sections/about.js?v=1.1"></script>
+    <script src="js/sections/hero.js?v=1.4"></script>
+    <script src="js/sections/about.js?v=1.5"></script>
     <script src="js/sections/highlights.js?v=1.0"></script>
     <script src="js/sections/pricing.js?v=1.0"></script>
-    <script src="js/sections/floorplan.js?v=1.0"></script>
+    <script src="js/sections/floorplan.js?v=1.1"></script>
     <script src="js/sections/amenities.js?v=1.0"></script>
     <script src="js/sections/gallery.js?v=1.1"></script>
-    <script src="js/sections/location.js?v=1.3"></script>
+    <script src="js/sections/location.js?v=1.4"></script>
     <script src="js/sections/developer.js?v=1.0"></script>
     <!-- <script src="js/sections/faq.js?v=1.0"></script> -->
-    <script src="js/sections/footer.js?v=2.0"></script>
+    <script src="js/sections/footer.js?v=2.1"></script>
 
     <script src="form-integration.js?v=2.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

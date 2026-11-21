@@ -146,11 +146,12 @@ window.applyThemeColors = function () {
     .rs-lead-form .form-label,
     .overview-stats-strip h3 {
       color: ${heading} !important;
+      font-weight: 600 !important;
     }
 
     /* General Body Text & Paragraphs (Controlled by 'text' in config.js) */
     body,
-    p:not(.hero-badge-pill *):not(.orbit-btn *):not(.btn-primary *):not(.get-in-touch-card *),
+    p:not(.hero-badge-pill *):not(.orbit-btn *):not(.btn-primary *):not(.get-in-touch-card *):not(.footer-bottom *):not(.footer-bottom),
     .section-text,
     #overview p,
     #about-us .col-lg-6:first-child p,
@@ -174,13 +175,53 @@ window.applyThemeColors = function () {
       color: ${text} !important;
     }
 
+    .highlight-ribbon-text {
+      font-weight: 400 !important;
+    }
+
+    /* All Body Text & Descriptions 16px (except Main Headings & Footer Disclaimer) */
+    p:not(.hero-badge-pill *):not(.orbit-btn *):not(.btn-primary *):not(.footer-bottom *):not(.footer-bottom):not(.footer-disclaimer *):not(.footer-disclaimer),
+    .section-text,
+    #overview p,
+    #overview .section-text,
+    #about-us p,
+    #about-us .col-lg-6:first-child p,
+    .get-in-touch-card p,
+    .highlight-ribbon-text,
+    .circuit-title,
+    .circuit-btn h4,
+    .pricing-head,
+    .pricing-head div,
+    .pricing-row,
+    .pricing-row div,
+    .pricing-row span,
+    .hero-bar-title,
+    .footer-desc {
+      font-size: 16px !important;
+    }
+
+    /* Footer Disclaimer (10px) */
+    .footer-disclaimer,
+    .footer-disclaimer p {
+      font-size: 10px !important;
+      line-height: 1.6 !important;
+    }
+
+    .pricing-box {
+      border-radius: 8px !important;
+    }
+
+    .hero-bar-sub,
+    .mobile-usp-sub {
+      font-size: 14px !important;
+    }
+
     /* Primary Brand Backgrounds */
     .top-cta-bar,
     .btn-brochure,
     .hero-bar-btn,
     .pricing-head,
     .highlight-ribbon-circle,
-    .hero-badge-pill,
     .hero-status-badge .pulse-dot,
     .pulse-dot,
     .bento-card:hover .bento-zoom-btn,
@@ -234,13 +275,57 @@ window.applyThemeColors = function () {
       color: ${btnText} !important;
     }
 
+    /* Footer Bottom (Pure White text & links on brand background) */
+    .footer-bottom,
+    .footer-bottom *,
+    .footer-bottom p,
+    .footer-bottom a,
+    .footer-bottom span,
+    footer .footer-bottom,
+    footer .footer-bottom *,
+    footer .footer-bottom p,
+    footer .footer-bottom a,
+    footer .footer-bottom span,
+    .project-footer .footer-bottom,
+    .project-footer .footer-bottom *,
+    .project-footer .footer-bottom p,
+    .project-footer .footer-bottom a {
+      color: #ffffff !important;
+    }
+
     .hero-badge-pill,
     .hero-badge-pill * {
       text-shadow: none !important;
     }
 
-    /* Accent Borders, Dots & Lines */
+    /* Hero Price Label / Badge (Info Tag - Not a button) */
+    .hero-badge-pill {
+      background: ${primary} !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      border-radius: 4px !important;
+      padding: 4px 14px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+      cursor: default !important;
+      pointer-events: auto !important;
+    }
+    .hero-badge-pill:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+      transform: none !important;
+    }
     .hero-badge-pill,
+    .hero-badge-pill .hero-price-prefix {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-weight: 500 !important;
+      font-size: 16px !important;
+    }
+    .hero-badge-pill .blinking-price,
+    .hero-badge-pill .price-bling-anim {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      font-size: 16px !important;
+    }
+
+    /* Accent Borders, Dots & Lines */
     .orbit-btn::before,
     .btn-primary::before,
     .rs-lead-form .btn-primary::before,
@@ -263,13 +348,11 @@ window.applyThemeColors = function () {
       color: ${primary} !important;
     }
 
-    /* Global Button Hover (except WhatsApp and bottom sticky bar) */
-    .orbit-btn:not(.whatsapp):not(.btn-success):hover,
+    /* Global Button Hover (except WhatsApp, bottom sticky bar, and plan buttons) */
+    .orbit-btn:not(.whatsapp):not(.btn-success):not(.plan-btn):hover,
     .btn-primary:not(.whatsapp):not(.btn-success):hover,
     .hero-bar-btn:hover,
     .btn-brochure:hover,
-    .plan-card:hover .plan-btn,
-    .plan-btn:hover,
     .pricing-box .orbit-btn:hover,
     .btn-outline-light.orbit-btn:hover,
     .rs-lead-form .btn-primary:hover {
@@ -279,15 +362,41 @@ window.applyThemeColors = function () {
       border-color: ${hover} !important;
     }
 
-    .orbit-btn:not(.whatsapp):not(.btn-success):hover *,
+    .orbit-btn:not(.whatsapp):not(.btn-success):not(.plan-btn):hover *,
     .btn-primary:not(.whatsapp):not(.btn-success):hover *,
     .hero-bar-btn:hover *,
     .btn-brochure:hover *,
-    .plan-btn:hover *,
     .pricing-box .orbit-btn:hover *,
     .btn-outline-light.orbit-btn:hover *,
     .rs-lead-form .btn-primary:hover * {
       color: ${btnText} !important;
+    }
+
+    /* Floor Plan & Master Plan Button (Wide, Brand Orange, Pure White Text on Card & Button Hover) */
+    .plan-btn,
+    .plan-card .plan-btn,
+    .plan-card:hover .plan-btn,
+    .plan-btn:hover {
+      background: ${primary} !important;
+      background-color: ${primary} !important;
+      color: #ffffff !important;
+      border-color: ${primary} !important;
+      box-shadow: 0 10px 28px rgba(185, 87, 52, 0.45) !important;
+      width: auto !important;
+      min-width: 175px !important;
+      padding: 10px 24px !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      white-space: nowrap !important;
+      border-radius: 6px !important;
+    }
+    .plan-btn::before {
+      display: none !important;
+    }
+    .plan-btn *,
+    .plan-card:hover .plan-btn *,
+    .plan-btn:hover * {
+      color: #ffffff !important;
     }
   `;
 };

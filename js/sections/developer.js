@@ -13,7 +13,7 @@ window.DEVELOPER_DATA = {
 
   // Developer Description
   description:
-  `Prestige Group is an established Indian real estate developer with experience spanning residential, commercial, retail and hospitality developments. Founded in 1986, the group has built a diversified portfolio across multiple real estate segments.`,
+  `Prestige Group is one of India's established real estate developers, founded in 1986. With decades of industry experience, the group has built a strong presence across the Indian real estate market. Its diversified portfolio spans residential, commercial, retail and hospitality developments. Known for its focus on quality, innovation and architectural excellence, Prestige Group continues to shape modern urban landscapes. The developer has delivered a wide range of projects catering to diverse lifestyle and business needs. Its developments reflect a commitment to thoughtful planning and contemporary design.`,
 
   // Right Side Touch Card
   cardHeading: "GET IN TOUCH",

@@ -101,7 +101,7 @@ window.renderHeroSection = function () {
   // 4. Price (Desktop & Mobile)
   const dPill = document.querySelector(".hero-badge-pill");
   if (dPill && data.priceValue) {
-    dPill.innerHTML = data.pricePrefix + ` <span class="blinking-price price-bling-anim">${data.priceValue}</span>`;
+    dPill.innerHTML = `<span class="hero-price-prefix">${data.pricePrefix}</span> <span class="blinking-price price-bling-anim">${data.priceValue}</span>`;
   }
   const mPrice = document.querySelector(".hero-cta.mobile .price");
   if (mPrice && data.priceValue) {

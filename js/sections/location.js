@@ -142,7 +142,7 @@ window.renderLocationSection = function () {
           <i class="${item.icon}" style="position: relative; z-index: 10; font-size: 14px; color: var(--theme-primary, #b95734);"></i>
         </div>
         <div style="margin-left: 16px; flex-grow: 1; display: flex; align-items: center; justify-content: space-between;">
-          <h4 class="circuit-title" style="font-size: 15px; font-weight: 700; margin: 0; letter-spacing: -0.2px;">
+          <h4 class="circuit-title" style="font-size: 16px; font-weight: 700; margin: 0; letter-spacing: -0.2px;">
             ${item.name}
           </h4>
           <span class="circuit-distance-badge">${item.distance}</span>

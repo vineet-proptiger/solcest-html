@@ -58,20 +58,24 @@ window.renderAboutSection = function () {
     }
   }
 
-  // 5. Stats
+  // 5. Stats (Label on top with small uppercase font, Value at bottom with big bold font)
   const statsContainer = document.querySelector("#overview .overview-stats-strip .d-flex");
   if (statsContainer && data.stats && data.stats.length > 0) {
     let html = "";
     data.stats.forEach((stat, idx) => {
       const isFirst = idx === 0;
+      const borderStyle = isFirst ? 'border-right: 1.5px solid #d5cec5' : '';
+      const padClass = isFirst ? 'pe-4 pe-lg-5' : '';
+      const fontSize = isFirst ? '22px' : '18px';
+
       html += `
-        <div class="${isFirst ? 'pe-4 pe-lg-5' : ''}" style="${isFirst ? 'border-right: 1.5px solid #d5cec5' : ''}">
-          <h3 style="color: #0b2d52; font-size: 30px; font-weight: 800; margin: 0 0 3px; font-family: 'Poppins', sans-serif; letter-spacing: -0.5px;">
-            ${stat.value}
-          </h3>
-          <span style="color: #6c757d; font-size: 11.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-family: 'Poppins', sans-serif; display: block;">
+        <div class="${padClass}" style="${borderStyle}">
+          <span style="color: #6c757d; font-size: 11.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-family: 'Poppins', sans-serif; display: block; margin-bottom: 2px;">
             ${stat.label}
           </span>
+          <h3 style="color: #0b2d52; font-size: ${fontSize}; font-weight: 600; margin: 0; font-family: 'Poppins', sans-serif; letter-spacing: -0.3px; line-height: 1.25;">
+            ${stat.value}
+          </h3>
         </div>
       `;
     });

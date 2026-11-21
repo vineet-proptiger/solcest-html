@@ -47,6 +47,7 @@ window.renderFooterSection = function () {
   if (copyEl) {
     if (data.copyright) {
       copyEl.style.setProperty("display", "block", "important");
+      copyEl.style.setProperty("color", "#ffffff", "important");
       copyEl.classList.remove("d-none");
       copyEl.textContent = data.copyright;
     } else {

@@ -58,7 +58,7 @@ window.renderFloorplanSection = function () {
           <div class="plan-overlay-text">${plan.title}</div>
           <div class="plan-overlay">
             <button
-              class="orbit-btn plan-btn w-25"
+              class="orbit-btn plan-btn"
               data-bs-toggle="modal"
               data-bs-target="#leadModal"
             >
