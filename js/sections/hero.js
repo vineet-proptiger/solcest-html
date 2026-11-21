@@ -8,9 +8,9 @@
 
 window.HERO_DATA = {
   // Headings & Labels
-  statusBadge: "New Launch",
-  projectName: "SOLCREST",
-  location: "Off Hennur Road, Bangalore",
+  statusBadge: "Pre Launch",
+  projectName: "Prestige Sector 92",
+  location: "Sector 92, New Gurgaon",
   pricePrefix: "Price Starts at",
   priceValue: "₹1.46 Cr*",
 
@@ -19,14 +19,14 @@ window.HERO_DATA = {
 
   // Banners
   banners: [
-    { src: "images/hero/banner1.webp", alt: "Solcrest Pool Landscape" },
-    { src: "images/hero/banner2.webp", alt: "Solcrest Luxury Living" }
+    { src: "images/hero/banner1.webp", alt: "An Iconic Architectural Elevation" },
+    { src: "images/hero/banner2.webp", alt: "A Landmark in Modern Architecture" }
   ],
 
   // USPs
   usps: [
     {
-      title: "2,3,3.5 & 4 BHK",
+      title: "2,3 & 4 BHK",
       sub: "Apartments",
       icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B95734" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M13 10l6 3v8M9 9v.01M9 13v.01M9 17v.01M17 15v.01M17 18v.01"/></svg>'
     },

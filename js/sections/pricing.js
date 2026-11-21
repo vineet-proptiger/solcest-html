@@ -17,19 +17,19 @@ window.PRICING_DATA = {
   units: [
     {
       type: "2 BHK",
-      area: "1332-1347 Sq.ft.",
+      area: "On Request",
       price: "₹ 1.46 Cr* Onwards",
       buttonText: "Complete Costing Details"
     },
     {
       type: "3 BHK",
-      area: "1516-2062 Sq.ft.",
+      area: "On Request",
       price: "₹ On Request",
       buttonText: "Complete Costing Details"
     },
     {
       type: "4 BHK",
-      area: "2164 Sq.ft.",
+      area: "On Request",
       price: "₹ On Request",
       buttonText: "Complete Costing Details"
     }

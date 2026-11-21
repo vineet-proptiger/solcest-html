@@ -13,9 +13,10 @@ window.ABOUT_DATA = {
   buttonText: "Download Brochure",
 
   // Content
-  description:
-    "Solcrest by Bricks & Milestone is an exclusive residential development designed for those seeking a refined lifestyle that blends contemporary architecture, premium amenities, and everyday convenience. Thoughtfully planned residences offer spacious layouts, elegant interiors, and a comfortable living environment, while the project’s modern infrastructure and lifestyle amenities create a well-rounded community experience. With a focus on quality, privacy, and sophisticated urban living, Solcrest is positioned as an ideal choice for discerning homebuyers looking for a premium address with strong lifestyle appeal.",
-  stats: [
+  description: `Prestige Sector 92 Gurgaon is presented here as an upcoming / coming-soon residential development. Buyers searching for Prestige City Gurgaon, Prestige 92 Gurgaon or Prestige Gurgaon can register here for verified project updates.
+The final project name, land area, apartment sizes, tower details, pricing, floor plans, amenities, launch date, possession schedule and HRERA registration are subject to official release. This page separates expected information from confirmed information, so you can register for updates without speculative details being presented as final.`,
+  
+    stats: [
     { value: "20+", label: "MODERN AMENITIES" },
     { value: "74", label: "LUXURY VILLAS" }
   ],
@@ -40,7 +41,10 @@ window.renderAboutSection = function () {
 
   // 3. Description
   const descEl = document.querySelector("#overview .section-text");
-  if (descEl && data.description) descEl.textContent = data.description;
+  if (descEl && data.description) {
+    descEl.style.whiteSpace = "pre-line";
+    descEl.textContent = data.description;
+  }
 
   // 4. Image (Show if defined, Hide if commented out)
   const imgWrapper = document.querySelector("#overview .image-wrapper");
