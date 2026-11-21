@@ -12,7 +12,7 @@ window.HERO_DATA = {
   projectName: "Prestige Sector 92",
   location: "Sector 92, New Gurgaon",
   pricePrefix: "Price Starts at",
-  priceValue: "₹1.46 Cr*",
+  priceValue: "On Request",
 
   // CTA Button Text
   buttonText: "Enquire Now",

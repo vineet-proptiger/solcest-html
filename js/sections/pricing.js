@@ -18,7 +18,7 @@ window.PRICING_DATA = {
     {
       type: "2 BHK",
       area: "On Request",
-      price: "₹ 1.46 Cr* Onwards",
+      price: "On Request",
       buttonText: "Complete Costing Details"
     },
     {
