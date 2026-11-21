@@ -75,7 +75,7 @@
     <meta http-equiv="Expires" content="0" />
 
     <!-- Project Config & Attribution Tracking -->
-    <script src="config.js?v=2.1"></script>
+    <script src="config.js?v=3.0"></script>
     <script src="formMeta.js?v=2.0"></script>
 
     <title>Solcrest by Bricks & Milestone | Premium Residences</title>
@@ -113,15 +113,23 @@
     />
     <style>
       :root {
-        --blue: #0b2d52;
-        --gold: #b95734;
-        --green: #b95734;
-        --bs-primary: #5f8d2a; /* your brand color */
-        --brand: #fa1e1e;
-        --brand-600: #0f3b46;
+        /* ================= MASTER THEME COLORS ================= */
+        --theme-primary: #b95734;   /* 🟠 Brand Orange (Buttons, Badges, Borders, Highlights) */
+        --theme-hover: #09223f;     /* 🔵 Hover Color (Navy Blue for all CTA buttons) */
+        --theme-btn-text: #ffffff;  /* ⚪ Button & Badge Text Color (White text inside all buttons/badges) */
+        --theme-heading: #0b2d52;   /* 🔷 Section Titles & Headings Color */
+        --theme-text: #444444;      /* 📝 Body Text Color */
+
+        /* Compatibility Aliases */
+        --blue: var(--theme-heading);
+        --gold: var(--theme-primary);
+        --green: var(--theme-primary);
+        --bs-primary: var(--theme-primary);
+        --brand: var(--theme-primary);
+        --brand-600: var(--theme-heading);
         --light: #f7f9fb;
-        --brand-purple: #b95734;
-        --birla-blue: #b95734;
+        --brand-purple: var(--theme-primary);
+        --birla-blue: var(--theme-primary);
       }
 
       .bounce-arrow {
@@ -167,6 +175,13 @@
         padding: 0;
         box-sizing: border-box;
         font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        color: var(--theme-text, #444444);
+      }
+      p, .section-text {
+        color: var(--theme-text, #444444);
       }
 
       /* ================= HEADER ================= */
@@ -471,8 +486,27 @@
         margin: 0 auto;
         /*overflow:hidden;*/
       }
-      .orbit-btn:hover {
-        color: white;
+      .orbit-btn {
+        transition: all 0.3s ease;
+      }
+      /* Global button hover matching right-side form submit button (#09223f) */
+      .orbit-btn:not(.whatsapp):not(.btn-success):hover,
+      .btn-primary:not(.whatsapp):not(.btn-success):hover,
+      .hero-bar-btn:hover,
+      .btn-brochure:hover,
+      .plan-btn:hover {
+        background: var(--theme-hover, #09223f) !important;
+        box-shadow: 0 14px 35px rgba(11, 45, 82, 0.45) !important;
+        color: #ffffff !important;
+        border-color: var(--theme-hover, #09223f) !important;
+        transform: translateY(-2px);
+      }
+      .orbit-btn:not(.whatsapp):not(.btn-success):hover *,
+      .btn-primary:not(.whatsapp):not(.btn-success):hover *,
+      .hero-bar-btn:hover *,
+      .btn-brochure:hover *,
+      .plan-btn:hover * {
+        color: #ffffff !important;
       }
 
       /* center */
@@ -624,6 +658,7 @@
         .mobile-hero-title {
           margin-top: 0 !important;
           margin-bottom: 2px !important;
+          color: var(--theme-primary, #b95734) !important;
         }
       }
 
@@ -652,7 +687,7 @@
         height: 65px !important;
         min-height: 65px !important;
         box-sizing: border-box !important;
-        background: #b95734 !important;
+        background: var(--theme-primary, #b95734) !important;
         color: #fff !important;
         font-family: Arial, sans-serif !important;
         font-weight: 600 !important;
@@ -792,7 +827,7 @@
         width: 9px;
         height: 9px;
         border-radius: 50%;
-        background-color: #f28743;
+        background-color: var(--theme-primary, #f28743) !important;
         box-shadow: 0 0 0 0 rgba(242, 135, 67, 0.75);
         animation: pulse-orange 1.8s infinite;
         display: inline-block;
@@ -927,12 +962,7 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        background: linear-gradient(
-          180deg,
-          #f28743 0%,
-          #b95734 55%,
-          #943a18 100%
-        );
+        background: var(--theme-primary, #b95734) !important;
         color: #ffffff;
         font-size: 13.5px;
         font-weight: 700;
@@ -1047,7 +1077,7 @@
       }
 
       .hero-bar-btn {
-        background: linear-gradient(135deg, #e47137 0%, #b95734 100%);
+        background: var(--theme-primary, #b95734) !important;
         color: #ffffff;
         border: none;
         border-radius: 50px;
@@ -1066,10 +1096,10 @@
       }
 
       .hero-bar-btn:hover {
-        background: linear-gradient(135deg, #f07b42 0%, #a84927 100%);
-        transform: translateY(-1px);
-        box-shadow: 0 6px 18px rgba(185, 87, 52, 0.55);
-        color: #ffffff;
+        background: var(--theme-hover, #09223f) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 35px rgba(11, 45, 82, 0.45) !important;
+        color: #ffffff !important;
       }
 
       @media (max-width: 1200px) and (min-width: 992px) {
@@ -1586,7 +1616,7 @@
               <h2
                 class="section-title text-green"
                 style="
-                  color: #0b2d52;
+                  color: var(--theme-primary, #b95734);
                   font-size: 28px;
                   font-weight: 700;
                   margin-bottom: 0;
@@ -1781,9 +1811,10 @@
             }
 
             .btn-brochure:hover {
-              background: #9c4526;
-              color: #fff;
-              transform: translateY(-1px);
+              background: var(--theme-hover, #09223f) !important;
+              color: #ffffff !important;
+              box-shadow: 0 14px 35px rgba(11, 45, 82, 0.45) !important;
+              transform: translateY(-2px);
             }
 
             .image-wrapper {
@@ -2136,8 +2167,17 @@
 
         <section id="floor-plan" class="container my-5">
           <div class="row g-4">
-            <div class="d-flex align-items-center justify-content-center">
+            <div class="col-12 text-center mb-4">
               <h3 class="fw-semibold text-green">Solcrest Floor Plan</h3>
+              <div
+                class="mx-auto mt-2"
+                style="
+                  width: 60px;
+                  height: 2.5px;
+                  background: var(--theme-primary, #b95734);
+                  border-radius: 2px;
+                "
+              ></div>
             </div>
             <!-- Master Plan -->
             <div class="col-md-6">
@@ -2257,9 +2297,13 @@
               opacity: 0;
             }
 
-            .plan-card:hover .plan-btn {
+            .plan-card:hover .plan-btn,
+            .plan-btn:hover {
               transform: translateY(0);
               z-index: 9999;
+              background: var(--theme-hover, #09223f) !important;
+              box-shadow: 0 14px 35px rgba(11, 45, 82, 0.45) !important;
+              color: #ffffff !important;
             }
           </style>
         </section>
@@ -4267,7 +4311,7 @@
               <h3
                 class="fw-semibold text-green"
                 style="
-                  color: #0b2d52;
+                  color: var(--theme-primary, #b95734);
                   font-size: 28px;
                   font-family: &quot;Poppins&quot;, sans-serif;
                   margin: 0;
@@ -5393,6 +5437,24 @@
       }
       .mobile-cta .call span {
         font-weight: 700 !important;
+        color: #ffffff !important;
+      }
+
+      /* Preserved hover states for mobile sticky bottom bar (excluded from blue hover) */
+      .mobile-cta .cta:hover {
+        box-shadow: none !important;
+        transform: none !important;
+      }
+      .mobile-cta .whatsapp:hover {
+        background: #24D366 !important;
+        color: #ffffff !important;
+      }
+      .mobile-cta .enquire:hover {
+        background: linear-gradient(90deg, #d7b440, #f4d87d) !important;
+        color: #000000 !important;
+      }
+      .mobile-cta .call:hover {
+        background: #1D6DEB !important;
         color: #ffffff !important;
       }
 

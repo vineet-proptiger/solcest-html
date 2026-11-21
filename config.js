@@ -1,11 +1,24 @@
 /* ===============================================================
-   PROJECT & BACKEND MASTER CONFIGURATION (config.js)
+   PROJECT & MASTER CONFIGURATION (config.js)
    ---------------------------------------------------------------
-   All project details, numbers, GTM, API & Google Sheet settings.
+   Sabhi User Settings ek sath upar (Top) me rakhi gayi hain.
+   Aapko jo bhi badalna ho, bas is Block (1 to 7) me badlein!
 =============================================================== */
 
-// 1. Backend API & Google Sheet Settings
+// ===============================================================
+// 1. MASTER THEME COLORS (1 place se poore project ke colors change karein)
+// ===============================================================
+window.THEME_COLORS = {
+  primary: "#b95734",    // 🟠 Primary / Brand Color (Orange - Main Headings, Buttons, Badges, Borders)
+  hover: "#1363be",      // 🔵 Button Hover Color (Navy Blue / Custom Blue on hover)
+  btnText: "#ffffff",    // ⚪ Button & Badge Text Color (White text inside all buttons/badges)
+  heading: "#0b2d52",    // 🔷 Subheadings, Card Titles & Form Labels Color
+  text: "#444444"        // 📝 Body Content & Paragraph Text Color
+};
 
+// ===============================================================
+// 2. Backend API & Google Sheet Settings
+// ===============================================================
 window.PROJECT_ID = "3528118";
 window.PROJECT_NAME = "Solcrest";
 window.CITY_ID = "2";
@@ -17,33 +30,277 @@ window.SECRET_KEY = "6c7f9ad8b2a1e0f4d5a8c0b9f6e2a4d190";
 window.SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbw2MGrCI0lVGZZD049RrqM52ubNIHHZLzuk7mIg9KMVacJREV9sw05jnPMvT5OeNtWt/exec";
 window.PROPTIGER_URL = "https://www.proptiger.com/data/v1/entity/enquiry";
 
-// 2. Domain & URLs (Change only DOMAIN_NAME - automatically applies everywhere)
+// ===============================================================
+// 3. Domain & URLs (Change only DOMAIN_NAME - automatically applies everywhere)
+// ===============================================================
 window.DOMAIN_NAME = "https://solcrestbybricks.in/";
 window.SITE_URL = window.DOMAIN_NAME;
 window.BASE_URL = window.DOMAIN_NAME.replace(/\/+$/, "");
 
-// 3. Logo Image
+// ===============================================================
+// 4. Logo Image
+// ===============================================================
 window.LOGO_IMAGE = "images/logo/logo.webp";
 
-// 4. Calling & WhatsApp Details
+// ===============================================================
+// 5. Calling & WhatsApp Details
+// ===============================================================
 window.CALL_NO = "919718344024";
 window.CALL_DISPLAY = "+91 9718344024";
 window.WHATSAPP_NO = "919560582493";
 window.WHATSAPP_URL = "https://wa.me/" + window.WHATSAPP_NO + "?text=" + encodeURIComponent("Hi I am interested in " + window.PROJECT_NAME);
 window._cLink = window.WHATSAPP_URL;
 
-// 5. Google Tag Manager (GTM)
+// ===============================================================
+// 6. Google Tag Manager (GTM)
+// ===============================================================
 window.GTM_ID = "GTM-575H8R87";
 
-// 6. Global Buttons (Mobile Sticky Bar)
+// ===============================================================
+// 7. Global Buttons (Mobile Sticky Bar)
+// ===============================================================
 window.GLOBAL_BUTTONS = {
   mobileCall: "Call Us",
   mobileEnquire: "ENQUIRE",
   mobileWhatsApp: "WhatsApp"
 };
 
-// 7. Auto-bind Call, WhatsApp, RERA & Global Buttons across UI
+
+
+/* ===============================================================
+   SYSTEM ENGINES & FUNCTIONS (DO NOT EDIT BELOW THIS LINE)
+   ---------------------------------------------------------------
+   All automation, theme applying & form binding runs automatically.
+=============================================================== */
+
+// A. Apply Theme Colors Engine
+window.applyThemeColors = function () {
+  const c = window.THEME_COLORS;
+  if (!c) return;
+
+  const primary = c.primary ? c.primary : "#b95734";
+  const hover = c.hover ? c.hover : "#09223f";
+  const btnText = c.btnText ? c.btnText : "#ffffff";
+  const heading = c.heading ? c.heading : "#0b2d52";
+  const text = c.text ? c.text : "#444444";
+
+  // 1. Set CSS root variables
+  const root = document.documentElement;
+  if (root && root.style) {
+    root.style.setProperty("--theme-primary", primary);
+    root.style.setProperty("--theme-hover", hover);
+    root.style.setProperty("--theme-btn-text", btnText);
+    root.style.setProperty("--theme-heading", heading);
+    root.style.setProperty("--theme-text", text);
+
+    root.style.setProperty("--gold", primary);
+    root.style.setProperty("--green", primary);
+    root.style.setProperty("--brand-purple", primary);
+    root.style.setProperty("--birla-blue", primary);
+    root.style.setProperty("--blue", heading);
+  }
+
+  // 2. Inject or update dynamic stylesheet
+  let styleEl = document.getElementById("dynamicThemeStyle");
+  if (!styleEl) {
+    styleEl = document.createElement("style");
+    styleEl.id = "dynamicThemeStyle";
+  }
+  if (document.head) {
+    document.head.appendChild(styleEl);
+  } else if (document.documentElement) {
+    document.documentElement.appendChild(styleEl);
+  }
+
+  styleEl.textContent = `
+    :root {
+      --theme-primary: ${primary} !important;
+      --theme-hover: ${hover} !important;
+      --theme-btn-text: ${btnText} !important;
+      --theme-heading: ${heading} !important;
+      --theme-text: ${text} !important;
+      --gold: ${primary} !important;
+      --green: ${primary} !important;
+      --brand-purple: ${primary} !important;
+      --birla-blue: ${primary} !important;
+      --blue: ${heading} !important;
+    }
+
+    /* Hero Banner Overlay Text (Always White over dark banner image) */
+    .hero-brand-title,
+    .hero-brand-text {
+      color: #ffffff !important;
+    }
+
+    /* Main Section Headings & Mobile Hero Title (Brand Primary color) */
+    .mobile-hero-title,
+    .section-title,
+    .text-green,
+    #overview h2,
+    #highlights h3.text-green,
+    #pricing h3.text-green,
+    #floor-plan h3.text-green,
+    #amenities h3.text-green,
+    #gallery .section-title,
+    #gallery h3.text-green,
+    #location h3.text-green,
+    #about-us h3.text-green {
+      color: ${primary} !important;
+    }
+
+    /* Subheadings, Card Titles & Form Labels */
+    .rs-lead-form .form-label,
+    .circuit-title,
+    .highlight-ribbon-text {
+      color: ${heading} !important;
+    }
+
+    /* General Body Text & Paragraphs (Controlled by 'text' in config.js) */
+    body,
+    p:not(.hero-badge-pill *):not(.orbit-btn *):not(.btn-primary *):not(.get-in-touch-card *),
+    .section-text,
+    #overview p,
+    #about-us .col-lg-6:first-child p,
+    .hero-bar-sub,
+    .mobile-usp-sub,
+    .overview-stats-strip span,
+    .pricing-row,
+    .pricing-row div,
+    .pricing-mobile-label,
+    .faq-answer,
+    .faq-answer p,
+    .rs-lead-form .form-check-label,
+    .rs-lead-form .small,
+    .footer-desc,
+    .footer-rera,
+    .footer-rera p,
+    .footer-disclaimer,
+    .footer-bottom,
+    .footer-bottom p {
+      color: ${text} !important;
+    }
+
+    /* Primary Brand Backgrounds */
+    .top-cta-bar,
+    .btn-brochure,
+    .hero-bar-btn,
+    .pricing-head,
+    .highlight-ribbon-circle,
+    .hero-badge-pill,
+    .hero-status-badge .pulse-dot,
+    .pulse-dot,
+    .bento-card:hover .bento-zoom-btn,
+    .bento-zoom-btn,
+    .lightbox-close:hover,
+    .lightbox-nav-btn:hover,
+    div[style*="height: 2.5px"],
+    div[style*="height: 2px"],
+    div[style*="height:2.5px"],
+    div[style*="height:2px"],
+    .theme-accent-line {
+      background: ${primary} !important;
+      background-color: ${primary} !important;
+    }
+
+    .orbit-btn,
+    .btn-primary,
+    .rs-lead-form .btn-primary {
+      background: ${primary} !important;
+      background-size: 100% 100% !important;
+    }
+
+    /* All CTA Buttons, Badges, and Pill Texts (Ensuring clean white text) */
+    .orbit-btn,
+    .orbit-btn *,
+    .btn-primary,
+    .btn-primary *,
+    .hero-bar-btn,
+    .hero-bar-btn *,
+    .btn-brochure,
+    .btn-brochure *,
+    .plan-btn,
+    .plan-btn *,
+    .pricing-box .orbit-btn,
+    .pricing-box .orbit-btn *,
+    .btn-outline-light.orbit-btn,
+    .btn-outline-light.orbit-btn *,
+    .top-cta-bar .cta-bar-btn,
+    .top-cta-bar .cta-bar-btn *,
+    .hero-badge-pill,
+    .hero-badge-pill *,
+    .hero-status-badge .badge-value,
+    .rs-lead-form .btn-primary,
+    .rs-lead-form .btn-primary *,
+    .rs-lead-form .btn-primary i,
+    .rs-lead-form .btn-primary .bi {
+      color: ${btnText} !important;
+    }
+
+    /* Accent Borders, Dots & Lines */
+    .hero-badge-pill,
+    .orbit-btn::before,
+    .btn-primary::before,
+    .rs-lead-form .btn-primary::before,
+    .bento-card:hover .bento-zoom-btn,
+    .lightbox-close:hover,
+    .lightbox-nav-btn:hover,
+    .highlight-ribbon-card,
+    div[style*="border-top: 4px solid"],
+    div[style*="border-left: 4px solid"] {
+      border-color: ${primary} !important;
+    }
+    .highlight-ribbon-card {
+      border-left-color: ${primary} !important;
+    }
+    .highlight-ribbon-card:hover {
+      border-color: ${primary} !important;
+    }
+    .highlight-ribbon-card:hover .highlight-ribbon-text,
+    .circuit-btn:hover .circuit-title {
+      color: ${primary} !important;
+    }
+
+    /* Global Button Hover (except WhatsApp and bottom sticky bar) */
+    .orbit-btn:not(.whatsapp):not(.btn-success):hover,
+    .btn-primary:not(.whatsapp):not(.btn-success):hover,
+    .hero-bar-btn:hover,
+    .btn-brochure:hover,
+    .plan-card:hover .plan-btn,
+    .plan-btn:hover,
+    .pricing-box .orbit-btn:hover,
+    .btn-outline-light.orbit-btn:hover,
+    .rs-lead-form .btn-primary:hover {
+      background: ${hover} !important;
+      box-shadow: 0 14px 35px rgba(11, 45, 82, 0.45) !important;
+      color: ${btnText} !important;
+      border-color: ${hover} !important;
+    }
+
+    .orbit-btn:not(.whatsapp):not(.btn-success):hover *,
+    .btn-primary:not(.whatsapp):not(.btn-success):hover *,
+    .hero-bar-btn:hover *,
+    .btn-brochure:hover *,
+    .plan-btn:hover *,
+    .pricing-box .orbit-btn:hover *,
+    .btn-outline-light.orbit-btn:hover *,
+    .rs-lead-form .btn-primary:hover * {
+      color: ${btnText} !important;
+    }
+  `;
+};
+
+// Run immediately
+if (typeof window.applyThemeColors === "function") {
+  window.applyThemeColors();
+}
+
+// B. Auto-bind Call, WhatsApp, RERA & Global Buttons across UI
 window.applyProjectConfig = function () {
+  // Apply master theme colors
+  if (typeof window.applyThemeColors === "function") {
+    window.applyThemeColors();
+  }
+
   // Update WhatsApp links
   const waUrl = "https://wa.me/" + window.WHATSAPP_NO + "?text=" + encodeURIComponent("Hi I am interested in " + window.PROJECT_NAME);
   const waBtns = document.querySelectorAll(
@@ -140,8 +397,22 @@ window.applyProjectConfig = function () {
 
 if (typeof document !== "undefined") {
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", window.applyProjectConfig);
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof window.applyThemeColors === "function") {
+        window.applyThemeColors();
+      }
+      window.applyProjectConfig();
+    });
   } else {
+    if (typeof window.applyThemeColors === "function") {
+      window.applyThemeColors();
+    }
     window.applyProjectConfig();
   }
+
+  window.addEventListener("load", function () {
+    if (typeof window.applyThemeColors === "function") {
+      window.applyThemeColors();
+    }
+  });
 }

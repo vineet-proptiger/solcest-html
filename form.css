@@ -110,14 +110,14 @@
   position:absolute;
   inset:-2px;
   border-radius:inherit;
-  border:2px solid #c9a24d;
+  border:2px solid var(--theme-primary, #b95734);
   animation:orbit 4s linear infinite;
   pointer-events:none;
 }
 
 /* Button hover */
 .rs-lead-form .btn-primary:hover{
-  background:#09223f;
+  background: var(--theme-hover, #09223f) !important;
   box-shadow:0 14px 35px rgba(11,45,82,.45);
 }
 
@@ -128,8 +128,13 @@
 }
 
 /* ================= TRUST ICONS ================= */
-.rs-lead-form .bi{
-  color:#0b2d52;
+.rs-lead-form .bi:not(.btn-primary .bi){
+  color: var(--theme-heading, #0b2d52);
+}
+.rs-lead-form .btn-primary,
+.rs-lead-form .btn-primary *,
+.rs-lead-form .btn-primary .bi {
+  color: var(--theme-btn-text, #ffffff) !important;
 }
 
 .rs-lead-form .small{

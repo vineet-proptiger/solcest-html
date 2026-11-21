@@ -40,8 +40,12 @@ window.renderFloorplanSection = function () {
   if (!row) return;
 
   let html = `
-    <div class="d-flex align-items-center justify-content-center">
+    <div class="col-12 text-center mb-4">
       <h3 class="fw-semibold text-green">${data.title}</h3>
+      <div
+        class="mx-auto mt-2"
+        style="width: 60px; height: 2.5px; background: var(--theme-primary, #b95734); border-radius: 2px;"
+      ></div>
     </div>
   `;
 

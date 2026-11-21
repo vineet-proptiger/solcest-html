@@ -12,7 +12,7 @@ window.HERO_DATA = {
   projectName: "SOLCREST",
   location: "Off Hennur Road, Bangalore",
   pricePrefix: "Price Starts at",
-  priceValue: "₹5 Cr*",
+  priceValue: "₹1.46 Cr*",
 
   // CTA Button Text
   buttonText: "Enquire Now",
