@@ -22,47 +22,47 @@ window.LOCATION_DATA = {
   // (Optional: agar kabhi sirf direct link paste karni ho to yahan kar sakte hain)
   mapUrl: "",
 
-  // Key Landmarks (Prestige Sector 92 Gurgaon Connectivity)
+  // Key Landmarks (Selected from Project Location Highlights)
   landmarks: [
     {
-      name: "Dwarka Expressway (NPR)",
-      distance: "3.5 km",
+      name: "Dwarka Expressway",
+      distance: "8–12 km",
       icon: "fa-solid fa-road"
     },
     {
-      name: "RPS & St. Xavier's School",
-      distance: "2.5 km",
+      name: "IMT Manesar",
+      distance: "10–15 km",
+      icon: "fa-solid fa-briefcase"
+    },
+    {
+      name: "DPS Sector 84",
+      distance: "5–8 km",
       icon: "fa-solid fa-graduation-cap"
     },
     {
-      name: "IMT Manesar Commercial Hub",
-      distance: "6.5 km",
-      icon: "fa-solid fa-building"
-    },
-    {
       name: "IGI Airport (Terminal 3)",
-      distance: "28 km",
+      distance: "28–32 km",
       icon: "fa-solid fa-plane-departure"
     },
     {
-      name: "Pataudi Road & Sector Corridor",
-      distance: "0.8 km",
+      name: "NH-48 (Delhi-Jaipur)",
+      distance: "7–10 km",
       icon: "fa-solid fa-route"
     },
     {
-      name: "NH-48 (Delhi-Jaipur Highway)",
-      distance: "7.0 km",
+      name: "Southern Peripheral Road (SPR)",
+      distance: "5–8 km",
       icon: "fa-solid fa-road"
     },
     {
-      name: "Aarvy Super Speciality Hospital",
-      distance: "2.5 km",
-      icon: "fa-solid fa-hospital"
+      name: "Cyber City Gurugram",
+      distance: "20–25 km",
+      icon: "fa-solid fa-building"
     },
     {
-      name: "Sapphire 90 & 83 Retail Malls",
-      distance: "3.5 km",
-      icon: "fa-solid fa-city"
+      name: "Medanta - The Medicity",
+      distance: "14–18 km",
+      icon: "fa-solid fa-hospital"
     }
   ]
 };

@@ -7,18 +7,18 @@
 
 window.ABOUT_DATA = {
   // Heading
-  title: "About ",
+  title: "About Prestige Sector 92",
 
   // Button Name (if button exists)
   buttonText: "Download Brochure",
 
   // Content
   description: `Prestige Sector 92 Gurgaon is presented here as an upcoming / coming-soon residential development. Buyers searching for Prestige City Gurgaon, Prestige 92 Gurgaon or Prestige Gurgaon can register here for verified project updates.
-The final project name, land area, apartment sizes, tower details, pricing, floor plans, amenities, launch date, possession schedule and HRERA registration are subject to official release. This page separates expected information from confirmed information, so you can register for updates without speculative details being presented as final.`,
+         The final project name, land area, apartment sizes, tower details, pricing, floor plans, amenities, launch date, possession schedule and HRERA registration are subject to official release. This page separates expected information from confirmed information, so you can register for updates without speculative details being presented as final.`,
   
     stats: [
     { value: "20+", label: "MODERN AMENITIES" },
-    { value: "74", label: "LUXURY VILLAS" }
+    { value: "Close to Dwarka Expressway", label: "Connectivity" }
   ],
   image: "images/about/about.webp"
 };

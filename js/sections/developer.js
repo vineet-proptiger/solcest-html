@@ -13,8 +13,7 @@ window.DEVELOPER_DATA = {
 
   // Developer Description
   description:
-  `The supplied Prestige City brochure describes Prestige Group as an established real estate platform with a multi-city portfolio spanning homes, offices, shopping malls, hotels, interiors and warehousing.
-   This Sector 92 page uses that brochure only as a visual and brand-style reference; project-specific details remain subject to the new Gurugram launch.`,
+  `Prestige Group is an established Indian real estate developer with experience spanning residential, commercial, retail and hospitality developments. Founded in 1986, the group has built a diversified portfolio across multiple real estate segments.`,
 
   // Right Side Touch Card
   cardHeading: "GET IN TOUCH",

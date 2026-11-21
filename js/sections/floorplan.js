@@ -7,7 +7,7 @@
 
 window.FLOORPLAN_DATA = {
   // Heading
-  title: "Floor Plan",
+  title: "Master & Floor Plan",
 
   // Default Button Text
   buttonText: "Request Plan",
