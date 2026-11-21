@@ -2,8 +2,8 @@
 window.FOOTER_DATA = {
   logo: "images/logo/logo.webp",
   reraNumber: "Comming Soon",
-  // salesName: "Solcrest Team",
-  copyright: "© 2026 Solcrest. All Rights Reserved."
+  // salesName: "Team",
+  copyright: "© 2026 . All Rights Reserved."
 };
 
 window.renderFooterSection = function () {

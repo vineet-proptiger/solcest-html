@@ -8,7 +8,7 @@
 
 window.PRICING_DATA = {
   // Heading
-  title: "Solcrest Pricing",
+  title: "Pricing",
 
   // Global button text for all pricing cards (can also be customized per unit)
   buttonText: "Complete Costing Details",

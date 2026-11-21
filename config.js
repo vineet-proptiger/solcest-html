@@ -33,7 +33,7 @@ window.PROPTIGER_URL = "https://www.proptiger.com/data/v1/entity/enquiry";
 // ===============================================================
 // 3. Domain & URLs (Change only DOMAIN_NAME - automatically applies everywhere)
 // ===============================================================
-window.DOMAIN_NAME = "https://solcrestbybricks.in/";
+window.DOMAIN_NAME = "https://prestigesector92.co.in/";
 window.SITE_URL = window.DOMAIN_NAME;
 window.BASE_URL = window.DOMAIN_NAME.replace(/\/+$/, "");
 
@@ -352,13 +352,35 @@ window.applyProjectConfig = function () {
     });
   }
 
-  // Update Canonical & OG tags dynamically from DOMAIN_NAME
+  // Update Canonical, OG & Twitter Meta Tags dynamically from DOMAIN_NAME
   if (window.DOMAIN_NAME) {
-    const canonicalLink = document.querySelector("link[rel='canonical']");
-    if (canonicalLink) canonicalLink.href = window.DOMAIN_NAME;
+    const rawDomain = window.DOMAIN_NAME.replace(/\/+$/, "");
+    const pagePath = window.location.pathname.indexOf("privacy") !== -1 ? "/privacy-policy.html" : "/";
+    const fullPageUrl = rawDomain + pagePath;
 
-    const ogUrl = document.querySelector("meta[property='og:url']");
-    if (ogUrl) ogUrl.content = window.DOMAIN_NAME;
+    let canonicalLink = document.querySelector("link[rel='canonical']");
+    if (!canonicalLink) {
+      canonicalLink = document.createElement("link");
+      canonicalLink.rel = "canonical";
+      if (document.head) document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.href = fullPageUrl;
+
+    let ogUrl = document.querySelector("meta[property='og:url']");
+    if (!ogUrl) {
+      ogUrl = document.createElement("meta");
+      ogUrl.setAttribute("property", "og:url");
+      if (document.head) document.head.appendChild(ogUrl);
+    }
+    ogUrl.content = fullPageUrl;
+
+    let twUrl = document.querySelector("meta[name='twitter:url']");
+    if (!twUrl) {
+      twUrl = document.createElement("meta");
+      twUrl.setAttribute("name", "twitter:url");
+      if (document.head) document.head.appendChild(twUrl);
+    }
+    twUrl.content = fullPageUrl;
   }
 
   // Update Global Buttons

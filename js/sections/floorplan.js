@@ -7,7 +7,7 @@
 
 window.FLOORPLAN_DATA = {
   // Heading
-  title: "Solcrest Floor Plan",
+  title: "Floor Plan",
 
   // Default Button Text
   buttonText: "Request Plan",

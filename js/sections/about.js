@@ -2,12 +2,12 @@
  * ========================================================
  * ABOUT SECTION CONFIGURATION & DATA
  * ========================================================
- * Edit this file to update the Overview / About Solcrest section!
+ * Edit this file to update the Overview / About section!
  */
 
 window.ABOUT_DATA = {
   // Heading
-  title: "About Solcrest",
+  title: "About ",
 
   // Button Name (if button exists)
   buttonText: "Download Brochure",
