@@ -15,6 +15,8 @@ window.THEME_COLORS = {
 // ===============================================================
 window.PROJECT_ID = "3528514";
 window.PROJECT_NAME = "Prestige Sector 92";
+window.DEVELOPER_NAME = "Prestige Group";
+window.RERA_NO = "Coming Soon";
 window.CITY_ID = "2";
 window.CITY_DISPLAY = "gurgaon";
 window.CITY_SLUG = "gurgaon";
