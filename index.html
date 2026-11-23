@@ -131,7 +131,7 @@
       }
 
       .text-green {
-        color: var(--gold) !important;
+        color: var(--theme-main-heading, #111111) !important;
       }
 
       /* RESET */
@@ -649,7 +649,10 @@
         .mobile-hero-title {
           margin-top: 0 !important;
           margin-bottom: 2px !important;
-          color: var(--theme-primary, #b95734) !important;
+          color: var(--theme-main-heading, #111111) !important;
+        }
+        .mobile-hero-location {
+          color: var(--theme-sub-heading, #666666) !important;
         }
       }
 
@@ -953,31 +956,33 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        background: var(--theme-primary, #b95734) !important;
+        background: transparent !important;
         color: #ffffff;
         font-size: 16px;
         font-weight: 500;
         letter-spacing: 0.3px;
         font-family: "Poppins", sans-serif;
-        padding: 5px 16px;
-        border-radius: 4px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        text-shadow: none !important;
+        padding: 0;
+        margin-top: -6px;
+        border: none !important;
+        box-shadow: none !important;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
         cursor: default;
         pointer-events: auto;
       }
 
       .hero-badge-pill .hero-price-prefix {
-        color: rgba(255, 255, 255, 0.9);
+        color: rgba(255, 255, 255, 0.95);
         font-weight: 500;
         font-size: 16px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
       }
 
       .hero-badge-pill .blinking-price {
         font-weight: 700;
         font-size: 18px;
         color: #ffffff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
       }
 
       /* Sharp Pure White Price On-Off Blinking Effect (Matching Current Project) */

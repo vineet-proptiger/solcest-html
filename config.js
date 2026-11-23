@@ -3,11 +3,13 @@
 // 1. MASTER THEME COLORS (1 place se poore project ke colors change karein)
 // ===============================================================
 window.THEME_COLORS = {
-  primary: "#b95734",    // 🟠 Primary / Brand Color (Orange - Main Headings, Buttons, Badges, Borders)
-  hover: "#152a42",      // 🔵 Button Hover Color (Navy Blue / Custom Blue on hover)
-  btnText: "#ffffff",    // ⚪ Button & Badge Text Color (White text inside all buttons/badges)
-  heading: "#524f0b",    // 🔷 Subheadings, Card Titles & Form Labels Color
-  text: "#444444"        // 📝 Body Content & Paragraph Text Color
+  primary: "#b95734",      // 🟠 Primary / Accent Color (Orange - Buttons, Badges, Borders, Accents)
+  hover: "#152a42",        // 🔵 Button Hover Color (Navy Blue / Custom Blue on hover)
+  btnText: "#ffffff",      // ⚪ Button & Badge Text Color (White text inside all buttons/badges)
+  mainHeading: "#111111",  // ⚫ Main Headings Color (Black - Sabhi Section Headings & Mobile Hero Title)
+  subHeading: "#666666",   // 🔘 Subheadings & Location Color (Grey - Hero Subtitle / Location)
+  heading: "#111111",      // 🔷 Card Titles, Form Labels & Subtitles
+  text: "#444444"          // 📝 Body Content & Paragraph Text Color
 };
 
 // ===============================================================
@@ -116,7 +118,9 @@ window.applyThemeColors = function () {
   const primary = c.primary ? c.primary : "#b95734";
   const hover = c.hover ? c.hover : "#09223f";
   const btnText = c.btnText ? c.btnText : "#ffffff";
-  const heading = c.heading ? c.heading : "#0b2d52";
+  const mainHeading = c.mainHeading ? c.mainHeading : (c.heading ? c.heading : "#111111");
+  const subHeading = c.subHeading ? c.subHeading : "#666666";
+  const heading = c.heading ? c.heading : "#111111";
   const text = c.text ? c.text : "#444444";
 
   // 1. Set CSS root variables
@@ -125,6 +129,8 @@ window.applyThemeColors = function () {
     root.style.setProperty("--theme-primary", primary);
     root.style.setProperty("--theme-hover", hover);
     root.style.setProperty("--theme-btn-text", btnText);
+    root.style.setProperty("--theme-main-heading", mainHeading);
+    root.style.setProperty("--theme-sub-heading", subHeading);
     root.style.setProperty("--theme-heading", heading);
     root.style.setProperty("--theme-text", text);
 
@@ -152,6 +158,8 @@ window.applyThemeColors = function () {
       --theme-primary: ${primary} !important;
       --theme-hover: ${hover} !important;
       --theme-btn-text: ${btnText} !important;
+      --theme-main-heading: ${mainHeading} !important;
+      --theme-sub-heading: ${subHeading} !important;
       --theme-heading: ${heading} !important;
       --theme-text: ${text} !important;
       --gold: ${primary} !important;
@@ -167,20 +175,34 @@ window.applyThemeColors = function () {
       color: #ffffff !important;
     }
 
-    /* Main Section Headings & Mobile Hero Title (Brand Primary color) */
+    /* Main Section Headings & Mobile Hero Title (Globally Controlled via mainHeading in config.js) */
     .mobile-hero-title,
     .section-title,
     .text-green,
     #overview h2,
+    #highlights h3,
     #highlights h3.text-green,
+    #pricing h3,
     #pricing h3.text-green,
+    #floor-plan h3,
     #floor-plan h3.text-green,
+    #amenities h3,
     #amenities h3.text-green,
     #gallery .section-title,
+    #gallery h3,
     #gallery h3.text-green,
+    #location h3,
     #location h3.text-green,
-    #about-us h3.text-green {
-      color: ${primary} !important;
+    #about-us h3,
+    #about-us h3.text-green,
+    section h2,
+    section h3.section-title {
+      color: ${mainHeading} !important;
+    }
+
+    /* Hero Section Small Location Text (Globally Controlled via subHeading in config.js) */
+    .mobile-hero-location {
+      color: ${subHeading} !important;
     }
 
     /* Subheadings, Card Titles & Form Labels */
@@ -334,36 +356,34 @@ window.applyThemeColors = function () {
       color: #ffffff !important;
     }
 
-    .hero-badge-pill,
-    .hero-badge-pill * {
-      text-shadow: none !important;
-    }
-
-    /* Hero Price Label / Badge (Info Tag - Not a button) */
+    /* Hero Price Label (Clean Text Floating - No Button Background) */
     .hero-badge-pill {
-      background: ${primary} !important;
-      border: 1px solid rgba(255, 255, 255, 0.4) !important;
-      border-radius: 4px !important;
-      padding: 4px 14px !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      margin-top: -6px !important;
+      box-shadow: none !important;
       cursor: default !important;
       pointer-events: auto !important;
     }
     .hero-badge-pill:hover {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+      box-shadow: none !important;
       transform: none !important;
     }
     .hero-badge-pill,
     .hero-badge-pill .hero-price-prefix {
-      color: rgba(255, 255, 255, 0.9) !important;
+      color: rgba(255, 255, 255, 0.95) !important;
       font-weight: 500 !important;
       font-size: 16px !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
     }
     .hero-badge-pill .blinking-price,
     .hero-badge-pill .price-bling-anim {
       color: #ffffff !important;
       font-weight: 700 !important;
       font-size: 18px !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
     }
 
     /* Header Navigation Links 15px */
