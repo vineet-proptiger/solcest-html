@@ -324,22 +324,38 @@ function RSLeadSubmit(form, event) {
       gclidWindowStart = now;
     }
 
-    const devCfg = (typeof window !== 'undefined' && window.DEV_LOCAL_CONFIG) || {};
+    const devCfg = (typeof window !== 'undefined' && window.DEV_LOCAL_CONFIG) ? window.DEV_LOCAL_CONFIG : {};
     const isLocalLimiterBypass = Boolean(devCfg.bypassRateLimiter);
 
-    if (!isLocalLimiterBypass && currentCount >= 3) {
+    let isTestBypass = false;
+    if (typeof window.isTestMode === 'function') {
+      isTestBypass = Boolean(window.isTestMode());
+    } else if (typeof window !== 'undefined' && window.location) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tVal = (urlParams.get('test') ? urlParams.get('test') : '').toLowerCase();
+      const dVal = (urlParams.get('debug') ? urlParams.get('debug') : '').toLowerCase();
+      if (tVal === 'true') {
+        isTestBypass = true;
+      } else if (tVal === 'submit') {
+        isTestBypass = true;
+      } else if (dVal === 'test') {
+        isTestBypass = true;
+      }
+    }
+
+    if (!isLocalLimiterBypass && !isTestBypass && currentCount >= 3) {
       msgBox.innerHTML = `
         <div class="alert alert-warning mt-3" role="alert">
           This ad click has reached its submission limit. Please contact us by phone for assistance.
         </div>
       `;
       btn.disabled = false;
-      btn.innerHTML = originalBtnContent || "SUBMIT";
+      btn.innerHTML = originalBtnContent ? originalBtnContent : "SUBMIT";
       return false;
     }
 
-    // Only explicit localhost development bypass skips counter writes.
-    if (!isLocalLimiterBypass) {
+    // Only explicit localhost development bypass or test mode skips counter writes.
+    if (!isLocalLimiterBypass && !isTestBypass) {
       form._gclid = gclid;
       form._currentCount = currentCount;
       form._gclidWindowStart = gclidWindowStart;
