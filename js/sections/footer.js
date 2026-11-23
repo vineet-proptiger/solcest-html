@@ -1,7 +1,8 @@
 
 window.FOOTER_DATA = {
   logo: "images/logo/logo.webp",
-  reraNumber: "Comming Soon",
+  reraLabel: "Project RERA Number:",
+  reraNumber: "Coming Soon",
   // salesName: "Team",
   copyright: "© 2026 . All Rights Reserved."
 };
@@ -32,13 +33,12 @@ window.renderFooterSection = function () {
     if (data.reraNumber) {
       reraContainer.style.setProperty("display", "block", "important");
       reraContainer.classList.remove("d-none");
-      const reraStrong = reraContainer.querySelector("strong");
-      if (reraStrong) {
-        reraStrong.textContent = data.reraNumber;
-      }
+      const label = data.reraLabel ? data.reraLabel : "Project RERA Number:";
+      reraContainer.innerHTML = `<p>${label} <strong>${data.reraNumber}</strong></p>`;
     } else {
       reraContainer.style.setProperty("display", "none", "important");
       reraContainer.classList.add("d-none");
+      reraContainer.innerHTML = "";
     }
   }
 
