@@ -15,8 +15,6 @@ window.THEME_COLORS = {
 // ===============================================================
 window.PROJECT_ID = "3528514";
 window.PROJECT_NAME = "Prestige Sector 92";
-window.DEVELOPER_NAME = "Prestige Group";
-window.RERA_NO = "Coming Soon";
 window.CITY_ID = "2";
 window.CITY_DISPLAY = "gurgaon";
 window.CITY_SLUG = "gurgaon";
@@ -32,39 +30,6 @@ window.PROPTIGER_URL = "https://www.proptiger.com/data/v1/entity/enquiry";
 window.DOMAIN_NAME = "https://prestigesector92.co.in/";
 window.SITE_URL = window.DOMAIN_NAME;
 window.BASE_URL = window.DOMAIN_NAME.replace(/\/+$/, "");
-
-// Dynamic Brand Name Extractor (e.g. "https://prestigesector92.co.in/" -> "prestigesector92")
-window.getDomainBrand = function (domainInput) {
-  var raw = domainInput ? domainInput : (window.DOMAIN_NAME ? window.DOMAIN_NAME : (typeof window !== "undefined" && window.location ? window.location.hostname : ""));
-  if (!raw) {
-    return "prestigesector92";
-  }
-  var str = raw.replace(/^(?:https?:)?\/\//i, "");
-  str = str.split("/")[0].split("?")[0].split("#")[0].split(":")[0].trim();
-  str = str.replace(/^(?:www|m|lp)\./i, "");
-  if (str === "localhost") {
-    if (window.DOMAIN_NAME) {
-      if (window.DOMAIN_NAME.indexOf("localhost") === -1) {
-        return window.getDomainBrand(window.DOMAIN_NAME);
-      }
-    }
-    return "prestigesector92";
-  }
-  if (/^[0-9.]+$/.test(str)) {
-    if (window.DOMAIN_NAME) {
-      if (window.DOMAIN_NAME.indexOf("localhost") === -1) {
-        return window.getDomainBrand(window.DOMAIN_NAME);
-      }
-    }
-    return "prestigesector92";
-  }
-  var parts = str.split(".");
-  if (parts.length >= 2) {
-    return parts[0];
-  }
-  return str ? str : "prestigesector92";
-};
-window.DOMAIN_BRAND = window.getDomainBrand();
 
 // ===============================================================
 // 4. Logo Image
@@ -83,7 +48,7 @@ window._cLink = window.WHATSAPP_URL;
 // ===============================================================
 // 6. Google Tag Manager (GTM)
 // ===============================================================
-window.GTM_ID = "GTM-575H8R87";
+window.GTM_ID = "GTM-575H8R87";   
 
 // ===============================================================
 // 7. Global Buttons (Mobile Sticky Bar)
@@ -102,7 +67,48 @@ window.GLOBAL_BUTTONS = {
    All automation, theme applying & form binding runs automatically.
 =============================================================== */
 
-// A. Apply Theme Colors Engine
+// A. Dynamic Brand Name Extractor Engine
+window.getDomainBrand = function (domainInput) {
+  var defaultFallback = "";
+  if (window.PROJECT_SLUG) {
+    defaultFallback = window.PROJECT_SLUG.toLowerCase().replace(/[^a-z0-9_-]/g, "");
+  } else if (window.PROJECT_NAME) {
+    defaultFallback = window.PROJECT_NAME.toLowerCase().replace(/\s+/g, "").replace(/[^a-z0-9]/g, "");
+  }
+
+  var raw = domainInput ? domainInput : (window.DOMAIN_NAME ? window.DOMAIN_NAME : (typeof window !== "undefined" && window.location ? window.location.hostname : ""));
+  if (!raw) {
+    return defaultFallback;
+  } 
+  var str = raw.replace(/^(?:https?:)?\/\//i, "");
+  str = str.split("/")[0].split("?")[0].split("#")[0].split(":")[0].trim().toLowerCase();
+  str = str.replace(/^(?:www|m|lp)\./i, "");
+
+  var isLocal = false;
+  if (str === "localhost") {
+    isLocal = true;
+  } else if (/^[0-9.]+$/.test(str)) {
+    isLocal = true;
+  }
+
+  if (isLocal) {
+    if (window.DOMAIN_NAME) {
+      if (window.DOMAIN_NAME.indexOf("localhost") === -1 && window.DOMAIN_NAME.indexOf("127.0.0.1") === -1) {
+        return window.getDomainBrand(window.DOMAIN_NAME);
+      }
+    }
+    return defaultFallback;
+  }
+
+  var parts = str.split(".");
+  if (parts.length >= 2) {
+    return parts[0];
+  }
+  return str ? str : defaultFallback;
+};
+window.DOMAIN_BRAND = window.getDomainBrand();
+
+// B. Apply Theme Colors Engine
 window.applyThemeColors = function () {
   const c = window.THEME_COLORS;
   if (!c) return;
@@ -136,7 +142,7 @@ window.applyThemeColors = function () {
     styleEl.id = "dynamicThemeStyle";
   }
   if (document.head) {
-    document.head.appendChild(styleEl);
+    document.head.appendChild(styleEl); 
   } else if (document.documentElement) {
     document.documentElement.appendChild(styleEl);
   }
@@ -528,7 +534,7 @@ window.applyProjectConfig = function () {
   }
 
   // Update Dynamic Domain Brand across site & Privacy Policy
-  const domainBrand = typeof window.getDomainBrand === "function" ? window.getDomainBrand() : "prestigesector92";
+  const domainBrand = typeof window.getDomainBrand === "function" ? window.getDomainBrand() : (window.PROJECT_SLUG ? window.PROJECT_SLUG.toLowerCase().replace(/[^a-z0-9_-]/g, "") : "");
   const domainBrandEls = document.querySelectorAll(".dynamic-domain-brand");
   domainBrandEls.forEach((el) => {
     el.textContent = domainBrand;

@@ -346,7 +346,7 @@ function RSLeadSubmit(form, event) {
     if (!isLocalLimiterBypass && !isTestBypass && currentCount >= 3) {
       msgBox.innerHTML = `
         <div class="alert alert-warning mt-3" role="alert">
-          This ad click has reached its submission limit. Please contact us by phone for assistance.
+          Please check your internet connection
         </div>
       `;
       btn.disabled = false;
